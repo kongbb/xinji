@@ -17,9 +17,14 @@ namespace CG.Presentation.WebHost.Controllers
 
         #region Constructor
 
-        public TestController(ITestService testService)
+        //public TestController(ITestService testService)
+        //{
+        //    TestService = testService;
+        //}
+
+        public TestController()
         {
-            TestService = testService;
+            
         }
 
         #endregion

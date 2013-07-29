@@ -12,7 +12,7 @@ namespace TestConsole
         static void Main(string[] args)
         {
             var client = new HttpClient();
-            client.SetBasicAuthentication();
+            //client.SetBasicAuthentication();
         }
     }
 }

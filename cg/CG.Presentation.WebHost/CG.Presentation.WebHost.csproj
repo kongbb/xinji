@@ -58,6 +58,9 @@
     <Reference Include="Microsoft.Practices.Unity.WebApi">
       <HintPath>..\References\Enterprise Library 6\Microsoft.Practices.Unity.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\References\NLog\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -225,6 +228,7 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="TestPage.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

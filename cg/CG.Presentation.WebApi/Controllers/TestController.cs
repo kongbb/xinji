@@ -6,11 +6,13 @@ using System.Web.Mvc;
 
 namespace CG.Presentation.WebApi.Controllers
 {
-    public class HomeController : Controller
+    public class TestController : Controller
     {
+        [HttpGet]
+        [HttpPost]
         public ActionResult Index()
         {
-            return View();
+            return JsonResult();
         }
     }
 }
