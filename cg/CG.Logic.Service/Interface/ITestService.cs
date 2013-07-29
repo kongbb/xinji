@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CG.Access.DataAccess
+namespace CG.Logic.Service.Interface
 {
-    public class Class1
+    public interface ITestService
     {
+        string Ping(string message);
     }
 }

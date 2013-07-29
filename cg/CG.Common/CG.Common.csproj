@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E6D324A4-BF14-49FD-A46D-4794D4697EFE}</ProjectGuid>
+    <ProjectGuid>{F5FF810F-7CCB-4EDD-B406-9CBFD8468C74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CG.Logic.Service</RootNamespace>
-    <AssemblyName>CG.Logic.Service</AssemblyName>
+    <RootNamespace>CG.Common</RootNamespace>
+    <AssemblyName>CG.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,15 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\ITestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\TestService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CG.Access.DataAccess\CG.Access.DataAccess.csproj">
-      <Project>{f44920c9-27db-473f-8fcc-233cc47fa176}</Project>
-      <Name>CG.Access.DataAccess</Name>
-    </ProjectReference>
+    <Folder Include="Helper\" />
+    <Folder Include="Unity\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

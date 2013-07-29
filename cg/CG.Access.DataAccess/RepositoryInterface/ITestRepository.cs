@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CG.Logic.Service
+namespace CG.Access.DataAccess.RepositoryInterface
 {
-    public class Class1
+    public interface ITestRepository
     {
+        string GetTestMessage();
     }
 }
