@@ -61,6 +61,9 @@
     <Reference Include="NLog">
       <HintPath>..\References\NLog\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\References\RestSharp\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -253,10 +256,6 @@
     <ProjectReference Include="..\CG.Common\CG.Common.csproj">
       <Project>{f5ff810f-7ccb-4edd-b406-9cbfd8468c74}</Project>
       <Name>CG.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CG.Logic.Service\CG.Logic.Service.csproj">
-      <Project>{e6d324a4-bf14-49fd-a46d-4794d4697efe}</Project>
-      <Name>CG.Logic.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

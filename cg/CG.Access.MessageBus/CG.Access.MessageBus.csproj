@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F5FF810F-7CCB-4EDD-B406-9CBFD8468C74}</ProjectGuid>
+    <ProjectGuid>{9BFE42CC-C6D9-44CB-8D98-F1155CEE7DCE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CG.Common</RootNamespace>
-    <AssemblyName>CG.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>CG.Access.MessageBus</RootNamespace>
+    <AssemblyName>CG.Access.MessageBus</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,8 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RestSharp">
-      <HintPath>..\References\RestSharp\RestSharp.dll</HintPath>
+    <Reference Include="EasyNetQ">
+      <HintPath>..\References\EasyNetQ\EasyNetQ.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyNetQ.Management.Client">
+      <HintPath>..\References\EasyNetQ\EasyNetQ.Management.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\References\RabbitMQClient\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,14 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigManager.cs" />
-    <Compile Include="Helper\RestSharperHelper.cs" />
-    <Compile Include="HttpRequestManager.cs" />
-    <Compile Include="LoggerManager.cs" />
+    <Compile Include="Components\MessageBusConsumerErrorStrategy.cs" />
+    <Compile Include="Components\MessageBusLogger.cs" />
+    <Compile Include="Components\MessageBusNullLogger.cs" />
+    <Compile Include="Components\MessageBusQueueBinding.cs" />
+    <Compile Include="Components\MessageBusSerializer.cs" />
+    <Compile Include="Constants\RabbitMqConstants.cs" />
+    <Compile Include="Interfaces\IMessageBus.cs" />
+    <Compile Include="Interfaces\IMessageBusConfigManager.cs" />
+    <Compile Include="Interfaces\IMessageBusFactory.cs" />
+    <Compile Include="Interfaces\IMessageBusLogger.cs" />
+    <Compile Include="MessageBus.cs" />
+    <Compile Include="MessageBusConfigManager.cs" />
+    <Compile Include="MessageBusFactory.cs" />
+    <Compile Include="MessageBusHealthCheck.cs" />
+    <Compile Include="Message\BaseQueueMessage.cs" />
+    <Compile Include="Message\MessagePropertyMapper.cs" />
+    <Compile Include="Message\MessageReceivedInfo.cs" />
+    <Compile Include="Message\MessageTransportProperties.cs" />
+    <Compile Include="Message\QueueMessage.cs" />
+    <Compile Include="Message\VoidQueueMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Unity\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

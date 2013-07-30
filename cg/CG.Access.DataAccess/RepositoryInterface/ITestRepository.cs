@@ -8,6 +8,6 @@ namespace CG.Access.DataAccess.RepositoryInterface
 {
     public interface ITestRepository
     {
-        string GetTestMessage();
+        TestTable GetTestMessageById(long messageId);
     }
 }

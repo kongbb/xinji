@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CG.Logic.DomainObject;
 
 namespace CG.Logic.Service.Interface
 {
     public interface ITestService
     {
-        string Ping(string message);
+        TestObject GetTestMessageById(long messageId);
     }
 }

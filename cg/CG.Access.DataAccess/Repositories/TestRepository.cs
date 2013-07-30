@@ -9,9 +9,16 @@ namespace CG.Access.DataAccess.Repositories
 {
     public class TestRepository : ITestRepository
     {
-        public string GetTestMessage()
+        protected CGEntities Context { get; set; }
+
+        public TestRepository()
         {
-            return "Hello World!";
+            Context = new CGEntities();
+        }
+
+        public TestTable GetTestMessageById(long messageId)
+        {
+            return Context.TestTables.SingleOrDefault(x => x.Id == messageId);
         }
     }
 }
