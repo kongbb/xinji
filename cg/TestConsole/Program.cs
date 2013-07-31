@@ -4,6 +4,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using CG.Common;
+using CG.Logic.DomainObject;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace TestConsole
 {
@@ -11,8 +15,10 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            var client = new HttpClient();
-            //client.SetBasicAuthentication();
+            string jsonString = @"{""Id"":3,""Message"":""Hello Roger!""}";
+            TestObject t = JsonConvert.DeserializeObject<TestObject>(jsonString);
+            HttpRequestManager manager = new HttpRequestManager("http://cg.webapi/");
+            string response = manager.GetResponse("api/TestApi/GetMessageById/1");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model CG.Presentation.WebHost.Models.TestModel
 
 @{
     Layout = null;
@@ -12,7 +12,7 @@
     </head>
     <body>
         <div>
-              <h2>This is a test page!</h2>
+              <p>Message:</p><h2>@Model.TestObject.Message</h2><p> from WebApi</p>
         </div>
     </body>
 </html>

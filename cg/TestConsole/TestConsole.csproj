@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\References\Newtonsoft\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\References\RestSharp\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
@@ -50,6 +56,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CG.Common\CG.Common.csproj">
+      <Project>{f5ff810f-7ccb-4edd-b406-9cbfd8468c74}</Project>
+      <Name>CG.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CG.Logic.DomainObject\CG.Logic.DomainObject.csproj">
+      <Project>{ef361cfc-ae7e-4a08-a6e1-75707cb2c626}</Project>
+      <Name>CG.Logic.DomainObject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
