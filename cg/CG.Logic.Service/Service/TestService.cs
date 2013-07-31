@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CG.Access.DataAccess.Repositories;
 using CG.Access.DataAccess.RepositoryInterface;
-using CG.Logic.DomainObject;
+using CG.Logic.Dto;
 using CG.Logic.Service.Interface;
 
 namespace CG.Logic.Service.Service

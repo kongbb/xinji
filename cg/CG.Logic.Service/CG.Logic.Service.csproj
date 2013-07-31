@@ -48,9 +48,9 @@
       <Project>{f44920c9-27db-473f-8fcc-233cc47fa176}</Project>
       <Name>CG.Access.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CG.Logic.DomainObject\CG.Logic.DomainObject.csproj">
+    <ProjectReference Include="..\CG.Logic.DomainObject\CG.Logic.Dto.csproj">
       <Project>{ef361cfc-ae7e-4a08-a6e1-75707cb2c626}</Project>
-      <Name>CG.Logic.DomainObject</Name>
+      <Name>CG.Logic.Dto</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

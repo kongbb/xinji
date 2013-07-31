@@ -240,9 +240,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CG.Logic.DomainObject\CG.Logic.DomainObject.csproj">
+    <ProjectReference Include="..\CG.Logic.DomainObject\CG.Logic.Dto.csproj">
       <Project>{ef361cfc-ae7e-4a08-a6e1-75707cb2c626}</Project>
-      <Name>CG.Logic.DomainObject</Name>
+      <Name>CG.Logic.Dto</Name>
     </ProjectReference>
     <ProjectReference Include="..\CG.Logic.Service\CG.Logic.Service.csproj">
       <Project>{e6d324a4-bf14-49fd-a46d-4794d4697efe}</Project>

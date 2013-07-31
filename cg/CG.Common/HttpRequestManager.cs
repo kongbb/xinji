@@ -48,6 +48,8 @@ namespace CG.Common
             Dictionary<string, string> parameters)
         {
             var request = new RestRequest(url, method);
+            //Client.Authenticator = new SimpleAuthenticator("username", "foo", "password", "bar");
+
             if (header != null)
             {
                 foreach (var headerParameter in header)

@@ -5,9 +5,10 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using CG.Common;
-using CG.Logic.DomainObject;
+using CG.Logic.Dto;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 
 namespace TestConsole
 {
