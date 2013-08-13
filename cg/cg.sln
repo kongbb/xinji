@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CG.Common", "CG.Common\CG.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CG.Access.MessageBus", "CG.Access.MessageBus\CG.Access.MessageBus.csproj", "{9BFE42CC-C6D9-44CB-8D98-F1155CEE7DCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CG.Logic.Dto", "CG.Logic.DomainObject\CG.Logic.Dto.csproj", "{EF361CFC-AE7E-4A08-A6E1-75707CB2C626}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CG.Logic.Dto", "CG.Logic.Dto\CG.Logic.Dto.csproj", "{EF361CFC-AE7E-4A08-A6E1-75707CB2C626}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CG.Logic.Dto
+namespace CG.Logic.Dto.TestDtos
 {
     public class TestObject
     {

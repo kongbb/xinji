@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using CG.Access.DataAccess.Repositories;
 using CG.Access.DataAccess.RepositoryInterface;
+using CG.Logic.DomainObject;
 using CG.Logic.Dto;
+using CG.Logic.Dto.TestDtos;
 using CG.Logic.Service.Interface;
 
 namespace CG.Logic.Service.Service
@@ -19,23 +21,25 @@ namespace CG.Logic.Service.Service
             TestRepository = new TestRepository();
         }
 
-        public TestObject GetTestMessageById(long messageId)
+        public ResponseDto<TestObject> GetTestMessageById(long messageId)
         {
             var testMessage = TestRepository.GetTestMessageById(messageId);
             if (testMessage != null)
             {
-                return new TestObject
+                return new ResponseDto<TestObject>
+                {
+                    Payload = new TestObject
                     {
                         Id = testMessage.Id,
                         Message = testMessage.Description,
-                    };
-            }
-
-            return new TestObject
-                {
-                    Id = 3,
-                    Message = "Hello Roger!"
+                    }
                 };
+            }
+            
+            return new ResponseDto<TestObject>
+            {
+                IsSuccessful = false,
+            };
         }
     }
 }

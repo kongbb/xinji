@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using CG.Common;
-using CG.Logic.Dto;
+using CG.Logic.Dto.TestDtos;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
