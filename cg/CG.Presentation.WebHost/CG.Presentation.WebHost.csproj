@@ -258,6 +258,10 @@
       <Project>{f5ff810f-7ccb-4edd-b406-9cbfd8468c74}</Project>
       <Name>CG.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CG.Logic.Dto\CG.Logic.Dto.csproj">
+      <Project>{EF361CFC-AE7E-4A08-A6E1-75707CB2C626}</Project>
+      <Name>CG.Logic.Dto</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

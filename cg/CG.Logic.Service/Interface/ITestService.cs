@@ -10,6 +10,6 @@ namespace CG.Logic.Service.Interface
 {
     public interface ITestService
     {
-        ResponseDto<TestObject> GetTestMessageById(long messageId);
+        ResponseDto<TestObjectDto> GetTestMessageById(long messageId);
     }
 }

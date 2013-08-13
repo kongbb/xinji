@@ -17,7 +17,7 @@ namespace TestConsole
         static void Main(string[] args)
         {
             string jsonString = @"{""Id"":3,""Message"":""Hello Roger!""}";
-            TestObject t = JsonConvert.DeserializeObject<TestObject>(jsonString);
+            TestObjectDto t = JsonConvert.DeserializeObject<TestObjectDto>(jsonString);
             HttpRequestManager manager = new HttpRequestManager("http://cg.webapi/");
             string response = manager.GetResponse("api/TestApi/GetMessageById/1");
         }

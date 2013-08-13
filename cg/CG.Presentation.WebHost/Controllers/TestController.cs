@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CG.Logic.Dto;
+using CG.Logic.Dto.TestDtos;
 using CG.Presentation.WebHost.Models;
 
 namespace CG.Presentation.WebHost.Controllers
@@ -38,7 +38,7 @@ namespace CG.Presentation.WebHost.Controllers
 
         private void LoadModel()
         {
-            TestObject response = RequestManager.GetResponse<TestObject>("api/TestApi/GetMessageById/3");
+            TestObjectDto response = RequestManager.GetResponse<TestObjectDto>("api/TestApi/GetMessageById/3");
             TestModel = new TestModel
                 {
                     TestObject = response,

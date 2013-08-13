@@ -21,14 +21,14 @@ namespace CG.Logic.Service.Service
             TestRepository = new TestRepository();
         }
 
-        public ResponseDto<TestObject> GetTestMessageById(long messageId)
+        public ResponseDto<TestObjectDto> GetTestMessageById(long messageId)
         {
             var testMessage = TestRepository.GetTestMessageById(messageId);
             if (testMessage != null)
             {
-                return new ResponseDto<TestObject>
+                return new ResponseDto<TestObjectDto>
                 {
-                    Payload = new TestObject
+                    Payload = new TestObjectDto
                     {
                         Id = testMessage.Id,
                         Message = testMessage.Description,
@@ -36,7 +36,7 @@ namespace CG.Logic.Service.Service
                 };
             }
             
-            return new ResponseDto<TestObject>
+            return new ResponseDto<TestObjectDto>
             {
                 IsSuccessful = false,
             };

@@ -19,7 +19,7 @@ namespace CG.Presentation.WebApi.Controllers
             TestService = new TestService();
         }
 
-        public TestObject GetMessageById(long id)
+        public TestObjectDto GetMessageById(long id)
         {
             var response = TestService.GetTestMessageById(id);
             if (response.IsSuccessful)
@@ -27,7 +27,7 @@ namespace CG.Presentation.WebApi.Controllers
                 return response.Payload;
             }
 
-            return new TestObject
+            return new TestObjectDto
             {
                 Message = "This is test object created from ApiController, not returning from DB",
             };
