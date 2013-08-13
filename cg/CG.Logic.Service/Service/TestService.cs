@@ -16,9 +16,9 @@ namespace CG.Logic.Service.Service
     {
         private ITestRepository TestRepository { get; set; }
 
-        public TestService()
+        public TestService(ITestRepository testRepository)
         {
-            TestRepository = new TestRepository();
+            TestRepository = testRepository;
         }
 
         public ResponseDto<TestObjectDto> GetTestMessageById(long messageId)

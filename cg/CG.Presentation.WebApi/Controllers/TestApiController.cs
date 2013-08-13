@@ -14,9 +14,9 @@ namespace CG.Presentation.WebApi.Controllers
     {
         protected ITestService TestService { get; set; }
 
-        public TestApiController()
+        public TestApiController(ITestService testService)
         {
-            TestService = new TestService();
+            TestService = testService;
         }
 
         public TestObjectDto GetMessageById(long id)
