@@ -9,17 +9,14 @@ using CG.Logic.DomainObject;
 using CG.Logic.Dto;
 using CG.Logic.Dto.TestDtos;
 using CG.Logic.Service.Interface;
+using Microsoft.Practices.Unity;
 
 namespace CG.Logic.Service.Service
 {
     public class TestService : ITestService
     {
+        [Dependency]
         private ITestRepository TestRepository { get; set; }
-
-        public TestService(ITestRepository testRepository)
-        {
-            TestRepository = testRepository;
-        }
 
         public ResponseDto<TestObjectDto> GetTestMessageById(long messageId)
         {

@@ -1,4 +1,6 @@
-﻿namespace CG.Access.MessageBus.Constants
+﻿using CG.Common.Enums;
+
+namespace CG.Access.MessageBus.Constants
 {
     public static class RabbitMqConstants
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CG.Common.Helpers;
 using EasyNetQ.Management.Client;
 
 namespace CG.Access.MessageBus

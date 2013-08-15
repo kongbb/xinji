@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CG.Logic.DomainObject;
 using CG.Logic.Dto.TestDtos;
+using CG.Presentation.WebHost.Constants;
 using CG.Presentation.WebHost.Models;
+using RestSharp;
 
 namespace CG.Presentation.WebHost.Controllers
 {
@@ -31,18 +34,47 @@ namespace CG.Presentation.WebHost.Controllers
         public ActionResult Index()
         {
             LoadModel();
-            return View(TestModel);
+            return View(ViewNames.TestIndex, TestModel);
+        }
+
+        public ActionResult PublishMessage()
+        {
+            TestObjectDto postMessage = new TestObjectDto
+            {
+                Message = "Message posted from WebHost!"
+            };
+            var response = RequestManager.Post<ResponseDto<TestObjectDto>>("api/TestApi/PostMessage",
+                postMessage);
+            if (response.IsSuccessful)
+            {
+                TestModel = new TestModel
+                {
+                    TestObject = response.Payload,
+                };
+            }
+            else
+            {
+                TestModel = new TestModel
+                {
+                    TestObject = new TestObjectDto
+                    {
+                        Message = response.Messages.First().Message,
+                    },
+                };
+            }
+
+            return View(ViewNames.TestIndex, TestModel);
         }
 
         #region Private Methods
 
         private void LoadModel()
         {
-            TestObjectDto response = RequestManager.GetResponse<TestObjectDto>("api/TestApi/GetMessageById/3");
+            var response = RequestManager.Get<ResponseDto<TestObjectDto>>("api/TestApi/GetMessageById/3");
             TestModel = new TestModel
-                {
-                    TestObject = response,
-                };
+            {
+                TestObject = response.Payload,
+            };
         }
 
         #endregion

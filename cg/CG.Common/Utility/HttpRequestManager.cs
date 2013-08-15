@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace CG.Common
+namespace CG.Common.Utility
 {
     public class HttpRequestManager
     {
@@ -26,28 +23,50 @@ namespace CG.Common
             }
         }
 
-        public string GetResponse(string url,
-            Method method = Method.GET,
+        public string Get(string url,
             Dictionary<string, string> headerDictionary = null,
             Dictionary<string, string> parameters = null)
         {
-            return MakeRequest(url, method, null, null);
+            return MakeRequest(url, Method.GET, null, null, null);
         }
 
-        public T GetResponse<T>(string url,
-            Method method = Method.GET,
+        public T Get<T>(string url,
             Dictionary<string, string> headerDictionary = null,
             Dictionary<string, string> parameters = null)
         {
-            string json = MakeRequest(url, method, null, null);
+            string json = MakeRequest(url, Method.GET, null, null, null);
             return JsonConvert.DeserializeObject<T>(json);
+        }
+
+        public string Post(string url,
+            string jsonString,
+            Dictionary<string, string> headerDictionary = null,
+            Dictionary<string, string> parameters = null)
+        {
+            return MakeRequest(url, Method.POST, headerDictionary, parameters, jsonString);
+        }
+
+        public T Post<T>(string url,
+            Object json,
+            Dictionary<string, string> headerDictionary = null,
+            Dictionary<string, string> parameters = null)
+        {
+            string jsonResponse = MakeRequest(url, Method.POST, headerDictionary, parameters, JsonConvert.SerializeObject(json));
+            return JsonConvert.DeserializeObject<T>(jsonResponse);
         }
 
         private string MakeRequest(string url, Method method,
             Dictionary<string, string> header,
-            Dictionary<string, string> parameters)
+            Dictionary<string, string> parameters, string jsonString)
         {
             var request = new RestRequest(url, method);
+            if (!string.IsNullOrWhiteSpace(jsonString))
+            {
+                request.AddParameter("application/json; charset=utf-8", jsonString,
+                    ParameterType.RequestBody);
+            }
+            
+            request.RequestFormat = DataFormat.Json;
             //Client.Authenticator = new SimpleAuthenticator("username", "foo", "password", "bar");
 
             if (header != null)

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CG.Common
+namespace CG.Common.Enums
 {
-    public class ConfigManager
+    public enum MessageBusExchangeType
     {
+         Direct,
+         Topic,
+         Fanout
     }
 }

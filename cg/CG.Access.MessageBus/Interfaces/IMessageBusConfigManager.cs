@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using CG.Access.MessageBus.Components;
+using CG.Common.Enums;
 
 namespace CG.Access.MessageBus.Interfaces
 {

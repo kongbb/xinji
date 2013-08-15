@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CG.Common
+namespace CG.Logic.Domain.BillPrinting
 {
-    public class LoggerManager
+    public class BillPrintingMessage
     {
     }
 }

@@ -1,4 +1,6 @@
-﻿@model CG.Presentation.WebHost.Models.TestModel
+﻿@using System.Web.Mvc.Html
+@using CG.Presentation.WebHost.Constants
+@model CG.Presentation.WebHost.Models.TestModel
 
 @{
     Layout = null;
@@ -12,7 +14,14 @@
     </head>
     <body>
         <div>
-              <p>Message:</p><h2>@Model.TestObject.Message</h2><p> from WebApi</p>
+            <p>Message:</p><h2>@Model.TestObject.Message</h2><p> from WebApi</p>
+        </div>
+        <div>
+            @using (Html.BeginForm(ActionNames.TestPublishMessage, ControllerNames.TestController, FormMethod.Post))
+            {
+                <input type="submit" name="@ActionNames.TestPublishMessage" 
+                   value="Publish" />
+            }
         </div>
     </body>
 </html>

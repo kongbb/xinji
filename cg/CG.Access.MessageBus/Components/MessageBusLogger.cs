@@ -1,40 +1,33 @@
 ﻿using System;
 using CG.Access.MessageBus.Interfaces;
 using CG.Access.MessageBus.Message;
+using CG.Common.Loggers;
 using EasyNetQ;
+using Microsoft.Practices.Unity;
 using MessageReceivedInfo = EasyNetQ.MessageReceivedInfo;
 
 namespace CG.Access.MessageBus.Components
 {
     public class MessageBusLogger : IMessageBusLogger, IEasyNetQLogger
     {
-        #region Properties
-
-        private Logger Logger
-        {
-            get
-            {
-                return LogManager.GetLogger(GetType().Name);
-            }
-        }
-
-        #endregion Properties
+        [Dependency]
+        private ILogger Logger { get; set; }
 
         #region Methods
 
         public void LogMessageWhenPublished<T>(QueueMessage<T> queueMessage) where T : class
         {
-            Logger.Debug(String.Format("Message Published At Local Time {0}", TimeManager.Current.Now));
+            Logger.Debug(String.Format("Message Published At Local Time {0}", DateTime.Now));
             Logger.Debug(String.Format("\tMessage Correlation ID: {0}",
                 queueMessage.TransportProperties.CorrelationId));
             Logger.Debug(String.Format("\tMessage Content Type: {0}",
-                queueMessage.MessageContent.GetType()));            
+                queueMessage.MessageContent.GetType()));
         }
 
         public void LogMessageWhenConsumed(MessageProperties properties,
             MessageReceivedInfo messageReceivedInfo)
         {
-            Logger.Debug(String.Format("Message received by subscriber at {0}", TimeManager.Current.UtcNow.ToString()));
+            Logger.Debug(String.Format("Message received by subscriber at {0}", DateTime.UtcNow.ToString()));
             Logger.Debug(String.Format("Properties for message with Id: {0}, Correlation Id: {1}",
                 properties.MessageId, properties.CorrelationId));
 

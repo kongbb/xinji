@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CG.Access.MessageBus</RootNamespace>
     <AssemblyName>CG.Access.MessageBus</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EasyNetQ">
@@ -35,6 +38,13 @@
     </Reference>
     <Reference Include="EasyNetQ.Management.Client">
       <HintPath>..\References\EasyNetQ\EasyNetQ.Management.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Enterprise Library 6\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\References\Newtonsoft\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RabbitMQ.Client">
       <HintPath>..\References\RabbitMQClient\RabbitMQ.Client.dll</HintPath>
@@ -48,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\BillPrintingMessageBusClient.cs" />
+    <Compile Include="Clients\IMessageBusClient.cs" />
+    <Compile Include="Clients\OrderPrintingMessageBusClient.cs" />
     <Compile Include="Components\MessageBusConsumerErrorStrategy.cs" />
     <Compile Include="Components\MessageBusLogger.cs" />
     <Compile Include="Components\MessageBusNullLogger.cs" />
@@ -61,7 +74,6 @@
     <Compile Include="MessageBus.cs" />
     <Compile Include="MessageBusConfigManager.cs" />
     <Compile Include="MessageBusFactory.cs" />
-    <Compile Include="MessageBusHealthCheck.cs" />
     <Compile Include="Message\BaseQueueMessage.cs" />
     <Compile Include="Message\MessagePropertyMapper.cs" />
     <Compile Include="Message\MessageReceivedInfo.cs" />
@@ -69,6 +81,16 @@
     <Compile Include="Message\QueueMessage.cs" />
     <Compile Include="Message\VoidQueueMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CG.Common\CG.Common.csproj">
+      <Project>{f5ff810f-7ccb-4edd-b406-9cbfd8468c74}</Project>
+      <Name>CG.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CG.Logic.Domain\CG.Logic.Domain.csproj">
+      <Project>{a2f7a307-8bc0-49f5-9754-4212d870cd24}</Project>
+      <Name>CG.Logic.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

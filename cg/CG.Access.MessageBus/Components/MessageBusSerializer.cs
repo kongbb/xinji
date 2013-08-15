@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using EasyNetQ;
+using Newtonsoft.Json;
 
 namespace CG.Access.MessageBus.Components
 {

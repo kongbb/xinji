@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace CG.Access.MessageBus.Message
 {
@@ -20,7 +21,7 @@ namespace CG.Access.MessageBus.Message
             Expiration = null;
             MessageId = null;
             Priority = 0;
-            Timestamp = ConvertToTimestamp(TimeManager.Current.UtcNow);
+            Timestamp = ConvertToTimestamp(DateTime.UtcNow);
         }
 
         public string AppId { get; set; }

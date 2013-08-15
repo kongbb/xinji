@@ -5,6 +5,8 @@ using CG.Access.MessageBus.Components;
 using CG.Access.MessageBus.Constants;
 using CG.Access.MessageBus.Interfaces;
 using CG.Access.MessageBus.Message;
+using CG.Common.Enums;
+using CG.Common.Loggers;
 using EasyNetQ;
 using EasyNetQ.Topology;
 
@@ -21,16 +23,22 @@ namespace CG.Access.MessageBus
 
         #region Properties
 
-        protected Logger Logger
-        {
-            get { return LogManager.GetLogger(GetType().Name); }
-        }
+        protected ILogger Logger { get; private set; }
 
         #endregion Properties
 
+        #region Constructor
+
+        public MessageBusFactory (ILogger logger)
+        {
+            Logger = logger;
+        }
+
+        #endregion
+
         #region Public Methods
 
-        public IMessageBus<T> Create(IMessageBusConfigManager configManager, 
+        public IMessageBus<T> Create(IMessageBusConfigManager configManager,
             IMessageBusLogger messageBusLogger)
         {
             var messageBus = new MessageBus<T>();
@@ -87,20 +95,20 @@ namespace CG.Access.MessageBus
                 configManager.PasswordForConnection,
                 configManager.RequestedHeartbeatInMinutes,
                 x =>
-                    {
-                        x.Register<ISerializer>(
-                            serviceProvider => new MessageBusSerializer());
+                {
+                    x.Register<ISerializer>(
+                        serviceProvider => new MessageBusSerializer());
 
-                        x.Register<IEasyNetQLogger>(serviceProvider => new MessageBusLogger());
+                    x.Register<IEasyNetQLogger>(serviceProvider => new MessageBusLogger());
 
-                        x.Register<IConsumerErrorStrategy>(
-                            serviceProvider => new MessageBusConsumerErrorStrategy(
-                                messageBus.ConfigManager.ErrorExchangeName,
-                                serviceProvider.Resolve<IConnectionFactory>(),
-                                serviceProvider.Resolve<ISerializer>(),
-                                serviceProvider.Resolve<IEasyNetQLogger>(),
-                                serviceProvider.Resolve<IConventions>()));
-                    }
+                    x.Register<IConsumerErrorStrategy>(
+                        serviceProvider => new MessageBusConsumerErrorStrategy(
+                            messageBus.ConfigManager.ErrorExchangeName,
+                            serviceProvider.Resolve<IConnectionFactory>(),
+                            serviceProvider.Resolve<ISerializer>(),
+                            serviceProvider.Resolve<IEasyNetQLogger>(),
+                            serviceProvider.Resolve<IConventions>()));
+                }
                 ).Advanced;
         }
 
@@ -117,12 +125,12 @@ namespace CG.Access.MessageBus
                     _shouldBindQueuesWithRoutingKey = true;
                     break;
 
-                case MessageBusExchangeType.Topic:    
+                case MessageBusExchangeType.Topic:
                     Logger.Debug(String.Format("Setting up Topic Exchange with name {0}...", mainExchangeName));
                     messageBus.Exchange = Exchange.DeclareTopic(mainExchangeName);
                     _shouldBindQueuesWithRoutingKey = true;
                     break;
-            
+
                 case MessageBusExchangeType.Fanout:
                     Logger.Debug(String.Format("Setting up Fanout Exchange with name {0}...", mainExchangeName));
                     messageBus.Exchange = Exchange.DeclareFanout(mainExchangeName);
@@ -134,11 +142,11 @@ namespace CG.Access.MessageBus
                     break;
             }
 
-            messageBus.MessageBusLogger.DebugWrite("Setting up Dead Letter Exchange with name {0}...", 
+            messageBus.MessageBusLogger.DebugWrite("Setting up Dead Letter Exchange with name {0}...",
                 deadLetterExchangeName);
 
-            _deadLetterExchange = Exchange.DeclareDirect(deadLetterExchangeName);                
-        } 
+            _deadLetterExchange = Exchange.DeclareDirect(deadLetterExchangeName);
+        }
 
         private IDictionary<string, object> GetQueueArguments(MessageBus<T> messageBus, string deadLetterRoutingKey)
         {
@@ -183,7 +191,7 @@ namespace CG.Access.MessageBus
 
                     string deadLetterQueueName =
                         messageBus.ConfigManager.GetDeadLetterQueueName(queueBinding.BaseQueueName);
-                    string deadLetterRoutingKey = 
+                    string deadLetterRoutingKey =
                         messageBus.ConfigManager.GetDeadLetterRoutingKey(queueBinding.BaseQueueName);
 
                     IDictionary<string, object> queueArguments = GetQueueArguments(messageBus,
@@ -194,7 +202,7 @@ namespace CG.Access.MessageBus
 
                     if (_shouldBindQueuesWithRoutingKey)
                     {
-                        mainQueue.BindTo(messageBus.Exchange, 
+                        mainQueue.BindTo(messageBus.Exchange,
                             messageBus.ConfigManager.GetMainRoutingKey(queueBinding.BaseRoutingKey));
                     }
                     else
@@ -211,7 +219,7 @@ namespace CG.Access.MessageBus
                     messageBus.MessageBusLogger.DebugWrite("Setting up Dead Letter Queue with name {0}...",
                         deadLetterQueueName);
 
-                    IQueue deadLetterQueue = 
+                    IQueue deadLetterQueue =
                         Queue.DeclareDurable(deadLetterQueueName);
 
                     deadLetterQueue.BindTo(_deadLetterExchange, deadLetterRoutingKey);

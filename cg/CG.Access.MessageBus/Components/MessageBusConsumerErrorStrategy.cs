@@ -92,10 +92,10 @@ namespace CG.Access.MessageBus.Components
             }
 		}
 
-		public override PostExceptionAckStrategy PostExceptionAckStrategy()
-		{
-		    return EasyNetQ.PostExceptionAckStrategy.ShouldAck;
-		}
+        //public override PostExceptionAckStrategy PostExceptionAckStrategy()
+        //{
+        //    return EasyNetQ.PostExceptionAckStrategy.ShouldAck;
+        //}
 
 		#endregion
 
