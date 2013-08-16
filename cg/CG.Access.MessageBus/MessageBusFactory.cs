@@ -6,9 +6,11 @@ using CG.Access.MessageBus.Constants;
 using CG.Access.MessageBus.Interfaces;
 using CG.Access.MessageBus.Message;
 using CG.Common.Enums;
+using CG.Common.Helpers;
 using CG.Common.Loggers;
 using EasyNetQ;
 using EasyNetQ.Topology;
+using Microsoft.Practices.Unity;
 
 namespace CG.Access.MessageBus
 {
@@ -23,17 +25,13 @@ namespace CG.Access.MessageBus
 
         #region Properties
 
-        protected ILogger Logger { get; private set; }
+        [Dependency]
+        protected ILogger Logger { get; set; }
 
         #endregion Properties
 
         #region Constructor
-
-        public MessageBusFactory (ILogger logger)
-        {
-            Logger = logger;
-        }
-
+        
         #endregion
 
         #region Public Methods
@@ -99,7 +97,7 @@ namespace CG.Access.MessageBus
                     x.Register<ISerializer>(
                         serviceProvider => new MessageBusSerializer());
 
-                    x.Register<IEasyNetQLogger>(serviceProvider => new MessageBusLogger());
+                    x.Register<IEasyNetQLogger>(serviceProvider => UnityHelper.Current.Resolve<MessageBusLogger>());
 
                     x.Register<IConsumerErrorStrategy>(
                         serviceProvider => new MessageBusConsumerErrorStrategy(

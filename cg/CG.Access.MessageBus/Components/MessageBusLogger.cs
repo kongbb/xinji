@@ -11,7 +11,7 @@ namespace CG.Access.MessageBus.Components
     public class MessageBusLogger : IMessageBusLogger, IEasyNetQLogger
     {
         [Dependency]
-        private ILogger Logger { get; set; }
+        public ILogger Logger { get; set; }
 
         #region Methods
 

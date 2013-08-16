@@ -17,30 +17,27 @@ namespace CG.Common.Helpers
 
         public static string MessageBusUserName
         {
-            get { throw new NotImplementedException(); }
+            get { return "guest"; }
         }
 
         public static string MessageBusPassword
         {
             get
             {
-                throw new NotImplementedException();
+                return "guest";
             }
         }
 
         public static string MessageBusHostAddress
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return "127.0.0.1"; }
         }
 
         public static string MessageBusQueueBindingPrefix
         {
             get
             {
-                throw new NotImplementedException();
+                return "CG-";
             }
         }
 

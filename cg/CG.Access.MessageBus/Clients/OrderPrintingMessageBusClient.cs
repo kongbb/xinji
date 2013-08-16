@@ -10,10 +10,11 @@ using CG.Common.Constants;
 using CG.Common.Enums;
 using CG.Common.Helpers;
 using CG.Logic.Domain.OrderPrinting;
+using Microsoft.Practices.Unity;
 
 namespace CG.Access.MessageBus.Clients
 {
-    public class OrderPrintingMessageBusClient : IMessageBusClient
+    public class OrderPrintingMessageBusClient : IOrderPrintingMessageBusClient
     {
         #region Fields
 
@@ -46,7 +47,7 @@ namespace CG.Access.MessageBus.Clients
                 MessageBusRoutingKeys.OrderSubmitted)); 
 
             _messageBus = messageBusFactory.Create(configManager, 
-                new MessageBusLogger());
+                UnityHelper.Current.Resolve<MessageBusLogger>());
         }
 
         #endregion
@@ -79,12 +80,23 @@ namespace CG.Access.MessageBus.Clients
 
         public void Publish(QueueMessage<OrderPrintingMessage> queueMessage)
         {
-            throw new NotImplementedException();
+            _messageBus.PublishToExchangeWithProperties(queueMessage,
+                SetTransportProperties, MessageBusRoutingKeys.OrderSubmitted);
         }
 
         public void Subscribe(Func<QueueMessage<OrderPrintingMessage>, Task> onMessageReceived)
         {
             throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private void SetTransportProperties(QueueMessage<OrderPrintingMessage> queueMessage)
+        {
+            // Delivery Mode 2 is for a persistent message i.e. persist to disk
+            queueMessage.TransportProperties.DeliveryMode = 2;
         }
 
         #endregion

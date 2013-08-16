@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EasyNetQ, Version=0.10.0.88, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\EasyNetQ\EasyNetQ.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -46,6 +50,10 @@
     </Reference>
     <Reference Include="Microsoft.Practices.Unity.WebApi">
       <HintPath>..\References\Enterprise Library 6\Microsoft.Practices.Unity.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\NLog\NLog.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
@@ -252,6 +260,18 @@
     <ProjectReference Include="..\CG.Access.DataAccess\CG.Access.DataAccess.csproj">
       <Project>{F44920C9-27DB-473F-8FCC-233CC47FA176}</Project>
       <Name>CG.Access.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CG.Access.MessageBus\CG.Access.MessageBus.csproj">
+      <Project>{9BFE42CC-C6D9-44CB-8D98-F1155CEE7DCE}</Project>
+      <Name>CG.Access.MessageBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CG.Common\CG.Common.csproj">
+      <Project>{F5FF810F-7CCB-4EDD-B406-9CBFD8468C74}</Project>
+      <Name>CG.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CG.Logic.Domain\CG.Logic.Domain.csproj">
+      <Project>{a2f7a307-8bc0-49f5-9754-4212d870cd24}</Project>
+      <Name>CG.Logic.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\CG.Logic.Dto\CG.Logic.Dto.csproj">
       <Project>{EF361CFC-AE7E-4A08-A6E1-75707CB2C626}</Project>

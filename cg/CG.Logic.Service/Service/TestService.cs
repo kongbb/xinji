@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using CG.Access.DataAccess.Repositories;
 using CG.Access.DataAccess.RepositoryInterface;
+using CG.Access.MessageBus.Clients;
+using CG.Access.MessageBus.Message;
+using CG.Logic.Domain.OrderPrinting;
 using CG.Logic.DomainObject;
 using CG.Logic.Dto;
 using CG.Logic.Dto.TestDtos;
@@ -16,7 +19,10 @@ namespace CG.Logic.Service.Service
     public class TestService : ITestService
     {
         [Dependency]
-        private ITestRepository TestRepository { get; set; }
+        public ITestRepository TestRepository { get; set; }
+
+        [Dependency]
+        public IOrderPrintingMessageBusClient OrderPrintingMessageBusClient { get; set; }
 
         public ResponseDto<TestObjectDto> GetTestMessageById(long messageId)
         {
@@ -33,10 +39,43 @@ namespace CG.Logic.Service.Service
                 };
             }
             
-            return new ResponseDto<TestObjectDto>
+            var failedResponse = new ResponseDto<TestObjectDto>
             {
                 IsSuccessful = false,
             };
+            
+            failedResponse.Messages.Add(new MessageDto
+            {
+                Code = "Data not find",
+                Message = string.Format("Cannot find Messge from DB by ID : {0}", messageId),
+            });
+
+            return failedResponse;
+        }
+
+        public VoidResponseDto PublishMessage(TestObjectDto testObjectDto)
+        {
+            var queueMessage = new QueueMessage<OrderPrintingMessage>
+            {
+                MessageContent = new OrderPrintingMessage
+                {
+                    OrderDetail = testObjectDto.Message,
+                }
+            };
+
+            var response = new VoidResponseDto();
+
+            try
+            {
+                OrderPrintingMessageBusClient.Publish(queueMessage);
+                response.IsSuccessful = true;
+            }
+            catch (Exception e)
+            {
+                response.IsSuccessful = false;
+            }
+
+            return response;
         }
     }
 }

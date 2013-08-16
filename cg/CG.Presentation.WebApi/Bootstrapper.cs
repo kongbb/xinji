@@ -7,6 +7,13 @@ using System.Web.Mvc;
 using CG.Access.DataAccess;
 using CG.Access.DataAccess.Repositories;
 using CG.Access.DataAccess.RepositoryInterface;
+using CG.Access.MessageBus;
+using CG.Access.MessageBus.Clients;
+using CG.Access.MessageBus.Components;
+using CG.Access.MessageBus.Interfaces;
+using CG.Common.Helpers;
+using CG.Common.Loggers;
+using CG.Logic.Domain.OrderPrinting;
 using CG.Logic.Service.Interface;
 using CG.Logic.Service.Service;
 using CG.Presentation.WebApi.Controllers;
@@ -27,11 +34,28 @@ namespace CG.Presentation.WebApi
         private static IUnityContainer BuildUnityContainer()
         {
             var container = new UnityContainer();
+            UnityHelper.Current = container;
 
+            // utility
+            container.RegisterType<ILogger, NLoggerAdapter>(new ContainerControlledLifetimeManager());
+
+            // DBContext
+            container.RegisterType<CGEntities>();
+
+            // controller, service, repository
             container
                 .RegisterType<TestApiController>()
                 .RegisterType<ITestService, TestService>()
-                .RegisterType<ITestRepository, TestRepository>();
+                .RegisterType<ITestRepository, TestRepository>(new ContainerControlledLifetimeManager());
+
+            // message bus
+            container
+                .RegisterType<MessageBusLogger>(new ContainerControlledLifetimeManager())
+                // order printing
+                .RegisterType<IOrderPrintingMessageBusClient, OrderPrintingMessageBusClient>(new ContainerControlledLifetimeManager())
+                .RegisterType<IMessageBusFactory<OrderPrintingMessage>,MessageBusFactory<OrderPrintingMessage>>(new ContainerControlledLifetimeManager())
+                // bill printing
+                .RegisterType<IBillPrintingMessageBusClient, BillPrintingMessageBusClient>(new ContainerControlledLifetimeManager());
 
             return container;
         }

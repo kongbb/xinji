@@ -14,30 +14,14 @@ namespace CG.Presentation.WebApi.Controllers
         public ResponseDto<TestObjectDto> GetMessageById(long id)
         {
             var response = TestService.GetTestMessageById(id);
-            if (response.IsSuccessful)
-            {
-                return response;
-            }
-
-            return new ResponseDto<TestObjectDto>
-            {
-                Payload = new TestObjectDto
-                {
-                    Message = "This is test object created from ApiController, not returning from DB",
-                }
-            };
+            return response;
         }
 
         [HttpPost]
-        public ResponseDto<TestObjectDto> PostMessage(TestObjectDto postMessage)
+        public VoidResponseDto PostMessage(TestObjectDto postMessage)
         {
-            var response = new ResponseDto<TestObjectDto>();
-            
-            postMessage.Message = postMessage.Message + " - processed!";
+            var response = TestService.PublishMessage(postMessage);
 
-            response.IsSuccessful = true;
-            response.Payload = postMessage;
-            
             return response;
         }
     }

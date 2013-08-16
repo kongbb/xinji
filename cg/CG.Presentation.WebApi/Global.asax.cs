@@ -1,7 +1,11 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using CG.Common.Helpers;
+using CG.Common.Loggers;
+using Microsoft.Practices.Unity;
 
 namespace CG.Presentation.WebApi
 {
@@ -10,6 +14,8 @@ namespace CG.Presentation.WebApi
 
     public class WebApiApplication : System.Web.HttpApplication
     {
+        private ILogger Logger { get; set; }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -20,6 +26,13 @@ namespace CG.Presentation.WebApi
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             Bootstrapper.Initialise();
+
+            Logger = UnityHelper.Current.Resolve<ILogger>();
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Logger.Error(Server.GetLastError());
         }
     }
 }

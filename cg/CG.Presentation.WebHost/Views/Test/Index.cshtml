@@ -14,7 +14,16 @@
     </head>
     <body>
         <div>
-            <p>Message:</p><h2>@Model.TestObject.Message</h2><p> from WebApi</p>
+            <p>Message:</p><h2>
+                               @if (Model.TestObject == null)
+                               {
+                                   Html.Raw("Nothing return from the Model");
+                               }
+                               else
+                               {
+                                   Html.Raw(Model.TestObject.Message);
+                               }
+                           </h2><p> from WebApi</p>
         </div>
         <div>
             @using (Html.BeginForm(ActionNames.TestPublishMessage, ControllerNames.TestController, FormMethod.Post))

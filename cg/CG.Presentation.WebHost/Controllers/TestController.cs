@@ -71,10 +71,24 @@ namespace CG.Presentation.WebHost.Controllers
         private void LoadModel()
         {
             var response = RequestManager.Get<ResponseDto<TestObjectDto>>("api/TestApi/GetMessageById/3");
-            TestModel = new TestModel
+            
+            if (response.IsSuccessful)
             {
-                TestObject = response.Payload,
-            };
+                TestModel = new TestModel
+                {
+                    TestObject = response.Payload,
+                };
+            }
+            else
+            {
+                TestModel = new TestModel
+                {
+                    TestObject = new TestObjectDto
+                    {
+                        Message = response.Messages.First().Message,
+                    },
+                };
+            }
         }
 
         #endregion

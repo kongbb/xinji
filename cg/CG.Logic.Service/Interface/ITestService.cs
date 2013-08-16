@@ -11,5 +11,7 @@ namespace CG.Logic.Service.Interface
     public interface ITestService
     {
         ResponseDto<TestObjectDto> GetTestMessageById(long messageId);
+
+        VoidResponseDto PublishMessage(TestObjectDto testObjectDto);
     }
 }

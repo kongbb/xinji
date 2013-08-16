@@ -8,7 +8,7 @@ using CG.Logic.Domain.OrderPrinting;
 
 namespace CG.Access.MessageBus.Clients
 {
-    public interface IMessageBusClient
+    public interface IOrderPrintingMessageBusClient
     {
         void Publish(QueueMessage<OrderPrintingMessage> queueMessage);
         void Subscribe(Func<QueueMessage<OrderPrintingMessage>, Task> onMessageReceived);

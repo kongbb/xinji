@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CG.Access.MessageBus.Message;
-using CG.Logic.Domain.OrderPrinting;
+using CG.Logic.Domain.BillPrinting;
 
 namespace CG.Access.MessageBus.Clients
 {
-    public class BillPrintingMessageBusClient : IMessageBusClient
+    public class BillPrintingMessageBusClient : IBillPrintingMessageBusClient
     {
-        public void Publish(QueueMessage<OrderPrintingMessage> queueMessage)
+        public void Publish(QueueMessage<BillPrintingMessage> queueMessage)
         {
             throw new NotImplementedException();
         }
 
-        public void Subscribe(Func<QueueMessage<OrderPrintingMessage>, Task> onMessageReceived)
+        public void Subscribe(Func<QueueMessage<BillPrintingMessage>, Task> onMessageReceived)
         {
             throw new NotImplementedException();
         }

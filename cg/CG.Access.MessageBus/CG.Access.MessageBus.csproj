@@ -59,7 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clients\BillPrintingMessageBusClient.cs" />
-    <Compile Include="Clients\IMessageBusClient.cs" />
+    <Compile Include="Clients\IBillPrintingMessageBusClient.cs" />
+    <Compile Include="Clients\IOrderPrintingMessageBusClient.cs" />
     <Compile Include="Clients\OrderPrintingMessageBusClient.cs" />
     <Compile Include="Components\MessageBusConsumerErrorStrategy.cs" />
     <Compile Include="Components\MessageBusLogger.cs" />

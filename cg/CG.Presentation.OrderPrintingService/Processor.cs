@@ -22,7 +22,7 @@ namespace CG.Presentation.OrderPrintingService
         }
 
         [Dependency]
-        private IMessageBusClient OrderPrintingMessageBusClient { get; set; }
+        private IOrderPrintingMessageBusClient OrderPrintingMessageBusClient { get; set; }
 
         #endregion
 
@@ -54,7 +54,7 @@ namespace CG.Presentation.OrderPrintingService
                     Logger.Info(
                         String.Format("About to printing order."));
 
-                    
+                    Console.WriteLine("Printing Order!");
 
                     //if (responseDto.IsSuccessful)
                     //{

@@ -52,6 +52,14 @@
       <Project>{f44920c9-27db-473f-8fcc-233cc47fa176}</Project>
       <Name>CG.Access.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CG.Access.MessageBus\CG.Access.MessageBus.csproj">
+      <Project>{9BFE42CC-C6D9-44CB-8D98-F1155CEE7DCE}</Project>
+      <Name>CG.Access.MessageBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CG.Logic.Domain\CG.Logic.Domain.csproj">
+      <Project>{a2f7a307-8bc0-49f5-9754-4212d870cd24}</Project>
+      <Name>CG.Logic.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CG.Logic.Dto\CG.Logic.Dto.csproj">
       <Project>{EF361CFC-AE7E-4A08-A6E1-75707CB2C626}</Project>
       <Name>CG.Logic.Dto</Name>
