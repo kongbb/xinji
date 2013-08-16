@@ -11,8 +11,10 @@ namespace CG.Presentation.WebApi.Controllers
         [Dependency]
         protected ITestService TestService { get; set; }
 
+        //[Authorize(Users = "username")]
         public ResponseDto<TestObjectDto> GetMessageById(long id)
         {
+            string s = User.Identity.Name;
             var response = TestService.GetTestMessageById(id);
             return response;
         }

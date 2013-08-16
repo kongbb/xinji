@@ -34,5 +34,10 @@ namespace CG.Presentation.WebApi
         {
             Logger.Error(Server.GetLastError());
         }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            string s = User.Identity.Name;
+        }
     }
 }

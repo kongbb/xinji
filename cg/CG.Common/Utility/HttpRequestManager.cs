@@ -20,6 +20,7 @@ namespace CG.Common.Utility
             else
             {
                 Client = new RestClient(domainUrl);
+                Client.Authenticator = new HttpBasicAuthenticator("username", "password");
             }
         }
 
