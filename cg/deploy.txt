@@ -1,0 +1,1 @@
+C:\Windows\System32\Inetsrv\appcmd set site /site.name:cg.webapi /bindings.[protocol='https',bindingInformation='*:443:'].bindingInformation:*:443:api.cg.com

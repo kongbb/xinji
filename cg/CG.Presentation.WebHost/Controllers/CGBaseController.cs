@@ -14,7 +14,7 @@ namespace CG.Presentation.WebHost.Controllers
 
         public CgBaseController()
         {
-            RequestManager = new HttpRequestManager("https://cg.api.com/");
+            RequestManager = new HttpRequestManager("https://api.cg.com/");
         }
     }
 }
