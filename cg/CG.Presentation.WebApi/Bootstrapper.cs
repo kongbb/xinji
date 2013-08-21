@@ -42,12 +42,15 @@ namespace CG.Presentation.WebApi
             // DBContext
             container.RegisterType<CGEntities>();
 
+            // UserRepository
+            container.RegisterType<IUserRepository, UserRepository>();
+
             // controller, service, repository
             container
                 .RegisterType<TestApiController>()
                 .RegisterType<ITestService, TestService>()
                 .RegisterType<ITestRepository, TestRepository>(new ContainerControlledLifetimeManager());
-
+            
             // message bus
             container
                 .RegisterType<MessageBusLogger>(new ContainerControlledLifetimeManager())

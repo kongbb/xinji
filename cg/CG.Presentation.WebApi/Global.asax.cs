@@ -37,7 +37,8 @@ namespace CG.Presentation.WebApi
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            string s = User.Identity.Name;
+            
+            //string s = User.Identity.Name;
         }
     }
 }

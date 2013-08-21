@@ -67,7 +67,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\TestRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="RepositoryInterface\ITestRepository.cs" />
+    <Compile Include="RepositoryInterface\IUserRepository.cs" />
     <Compile Include="TestTable.cs">
       <DependentUpon>CG.tt</DependentUpon>
     </Compile>
@@ -97,6 +99,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CG.Logic.Domain\CG.Logic.Domain.csproj">
+      <Project>{A2F7A307-8BC0-49F5-9754-4212D870CD24}</Project>
+      <Name>CG.Logic.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
