@@ -213,3 +213,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+# Logs
+CG.Presentation.WebApi/Log/
+CG.Presentation.WebHost/Log/
