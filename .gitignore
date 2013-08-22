@@ -215,5 +215,9 @@ pip-log.txt
 .mr.developer.cfg
 
 # Logs
-CG.Presentation.WebApi/Log/
-CG.Presentation.WebHost/Log/
+cg/CG.Presentation.WebApi/Log/
+cg/CG.Presentation.WebHost/Log/
+
+# bin obj
+cg/*/bin/
+cg/*/obj/
