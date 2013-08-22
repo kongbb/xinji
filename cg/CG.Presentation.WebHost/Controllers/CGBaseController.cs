@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using CG.Common;
 using CG.Common.Utility;
+using CG.Presentation.WebHost.Helper;
+using Microsoft.Practices.Unity;
 
 namespace CG.Presentation.WebHost.Controllers
 {
@@ -14,7 +16,7 @@ namespace CG.Presentation.WebHost.Controllers
 
         public CgBaseController()
         {
-            RequestManager = new HttpRequestManager("https://api.cg.com/");
+            RequestManager = new HttpRequestManager(WebHostConfigurationManager.Current.GetApiDomainUrl);
         }
     }
 }

@@ -150,10 +150,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Constants\ConfigNames.cs" />
+    <Compile Include="Helper\WebHostConfigurationManager.cs" />
     <Compile Include="Constants\ActionNames.cs" />
     <Compile Include="Constants\ControllerNames.cs" />
     <Compile Include="Constants\ViewNames.cs" />
-    <Compile Include="ControllerFactory.cs" />
     <Compile Include="Controllers\CGBaseController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">

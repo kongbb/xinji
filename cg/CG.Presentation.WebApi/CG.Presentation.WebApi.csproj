@@ -227,6 +227,15 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Web.roger-company.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.roger-home.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.tuzi.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />

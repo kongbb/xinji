@@ -71,6 +71,7 @@
       <HintPath>..\References\RestSharp\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -86,9 +87,10 @@
     <Compile Include="Helpers\UnityHelper.cs" />
     <Compile Include="Loggers\ILogger.cs" />
     <Compile Include="Loggers\NLoggerAdapter.cs" />
-    <Compile Include="Utility\ConfigManager.cs" />
+    <Compile Include="Utility\AppConfig.cs" />
     <Compile Include="Enums\MessageBusExchangeType.cs" />
     <Compile Include="Utility\HttpRequestManager.cs" />
+    <Compile Include="Utility\IConfig.cs" />
     <Compile Include="Utility\LoggerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
