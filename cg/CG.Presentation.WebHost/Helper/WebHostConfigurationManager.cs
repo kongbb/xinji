@@ -1,6 +1,8 @@
-﻿using CG.Common.Utility;
+﻿using CG.Common.Helpers;
+using CG.Common.Utility;
 using CG.Presentation.WebHost.Constants;
 using Microsoft.Practices.Unity;
+using NLog;
 
 namespace CG.Presentation.WebHost.Helper
 {
@@ -17,7 +19,7 @@ namespace CG.Presentation.WebHost.Helper
             {
                 if (_configManager == null)
                 {
-                    _configManager = UnityHelper.Container.Resolve<WebHostConfigurationManager>();
+                    _configManager = UnityHelper.Current.Resolve<WebHostConfigurationManager>();
                 }
 
                 return _configManager;

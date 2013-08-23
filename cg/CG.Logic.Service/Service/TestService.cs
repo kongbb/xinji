@@ -31,6 +31,7 @@ namespace CG.Logic.Service.Service
             {
                 return new ResponseDto<TestObjectDto>
                 {
+                    IsSuccessful = true,
                     Payload = new TestObjectDto
                     {
                         Id = testMessage.Id,
@@ -39,6 +40,16 @@ namespace CG.Logic.Service.Service
                 };
             }
             
+            return new ResponseDto<TestObjectDto>
+                {
+                    IsSuccessful = true,
+                    Payload = new TestObjectDto
+                        {
+                            Id = 33,
+                            Message = "Test Message"
+                        }
+                };
+
             var failedResponse = new ResponseDto<TestObjectDto>
             {
                 IsSuccessful = false,
