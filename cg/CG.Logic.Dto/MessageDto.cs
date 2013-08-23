@@ -5,7 +5,6 @@ using System.Text;
 
 namespace CG.Logic.DomainObject
 {
-    [Serializable]
     public class MessageDto : BaseDto
     {
         public long SeverityId { get; set; }
