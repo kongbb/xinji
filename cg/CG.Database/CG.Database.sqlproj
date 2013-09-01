@@ -7,14 +7,14 @@
     <Name>CG.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{1559b164-9e5e-4e4b-9d38-0c576f843ead}</ProjectGuid>
+    <ProjectGuid>{b16db5c5-eaa1-47d8-b408-5d5f91ddc3f5}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>CG.Database</RootNamespace>
     <AssemblyName>CG.Database</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>2052,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -23,7 +23,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <GenerateCreateScript>True</GenerateCreateScript>
+    <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -37,6 +38,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DebugSymbols>true</DebugSymbols>
@@ -54,53 +56,35 @@
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'roger-company|AnyCPU' ">
-    <OutputPath>bin\roger-company\</OutputPath>
-    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'roger-home|AnyCPU' ">
-    <OutputPath>bin\roger-home\</OutputPath>
-    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'tuzi|AnyCPU' ">
-    <OutputPath>bin\tuzi\</OutputPath>
-    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Table" />
-    <Folder Include="View" />
-    <Folder Include="StoredProcedure" />
-    <Folder Include="Function" />
-    <Folder Include="TestData" />
-    <Folder Include="InitialData" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Table\TestTable.sql" />
+    <Build Include="dbo\Tables\TestTable.sql" />
+    <Build Include="dbo\Tables\RC_ACTION_HISTORY.sql" />
+    <Build Include="dbo\Tables\RC_ACCOUNTS.sql" />
+    <Build Include="dbo\Tables\CR_USERS.sql" />
+    <Build Include="dbo\Tables\CR_TRANSACTION.sql" />
+    <Build Include="dbo\Tables\CR_TICKETS.sql" />
+    <Build Include="dbo\Tables\CR_TICKET_MODIFIER.sql" />
+    <Build Include="dbo\Tables\CR_TICKET_ITEM.sql" />
+    <Build Include="dbo\Tables\CR_TAX.sql" />
+    <Build Include="dbo\Tables\CR_SHIFT.sql" />
+    <Build Include="dbo\Tables\CR_RESTO_PAYMENT_MOTHOD.sql" />
+    <Build Include="dbo\Tables\CR_PRINTER_CONFIG.sql" />
+    <Build Include="dbo\Tables\CR_PAYMENT_METHOD.sql" />
+    <Build Include="dbo\Tables\CR_MENUITEM_MODIFIER_GROUP.sql" />
+    <Build Include="dbo\Tables\CR_MENU_MODIFIER_GROUP.sql" />
+    <Build Include="dbo\Tables\CR_MENU_MODIFER.sql" />
+    <Build Include="dbo\Tables\CR_MENU_ITEM.sql" />
+    <Build Include="dbo\Tables\CR_MENU_GROUP.sql" />
+    <Build Include="dbo\Tables\CR_MENU_CATEGORY.sql" />
+    <Build Include="dbo\Tables\CR_ACCOUNT_TABLE.sql" />
+    <Build Include="dbo\Tables\CR_ACCOUNT_LEVEL_TYPES.sql" />
+    <Build Include="dbo\Tables\CR_ACCOUNT_LEVEL.sql" />
+    <Build Include="dbo\Tables\RC_RESTAURANT.sql" />
   </ItemGroup>
 </Project>

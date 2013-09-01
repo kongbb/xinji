@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[CR_TICKETS] (
+    [TICKET_ID]        NCHAR (10)      NOT NULL,
+    [ACCOUNT_ID]       INT             NOT NULL,
+    [CREATE_TIME]      BIGINT          NOT NULL,
+    [CHECKOUT_TIME]    BIGINT          NULL,
+    [PAID]             SMALLINT        NULL,
+    [VOID]             SMALLINT        NULL,
+    [SETTLED]          SMALLINT        NULL,
+    [VOID_REASON]      INT             NULL,
+    [TOTAL_PRICE]      DECIMAL (18, 2) NULL,
+    [TOTAL_DISCOUNT]   DECIMAL (18, 2) NULL,
+    [TOTAL_TAX]        DECIMAL (18, 2) NULL,
+    [PAID_AMOUNT]      DECIMAL (18, 2) NULL,
+    [DUE_AMOUNT]       DECIMAL (18, 2) NULL,
+    [NUM_GUEST]        INT             NULL,
+    [TABLE_NO]         INT             NULL,
+    [CHECKOUT_USER_ID] INT             NULL,
+    [VOID_USER_ID]     INT             NULL,
+    [GRATUITY_ID]      INT             NULL,
+    [IS_REOPEN]        SMALLINT        NULL,
+    [TERMIAL_ID]       INT             NULL,
+    [MODIFIED_TIME]    ROWVERSION      NULL,
+    [MODIFIED_BY]      INT             NULL,
+    CONSTRAINT [PK_CR_TICKETS] PRIMARY KEY CLUSTERED ([TICKET_ID] ASC)
+);
+

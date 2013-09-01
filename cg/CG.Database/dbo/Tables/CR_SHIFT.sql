@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[CR_SHIFT] (
+    [SHIFT_ID]      INT         NOT NULL,
+    [ACCOUNT_ID]    INT         NULL,
+    [NAME]          NCHAR (100) NULL,
+    [START_TIME]    BIGINT      NULL,
+    [SHIFT_LEN]     BIGINT      NULL,
+    [MODIFIED_TIME] ROWVERSION  NULL,
+    [MODIFIED_BY]   INT         NOT NULL,
+    CONSTRAINT [PK_CR_SHIFT] PRIMARY KEY CLUSTERED ([SHIFT_ID] ASC)
+);
+
