@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[RC_TICKET_ITEM] (
+    [TICKET_ID]               BIGINT          NOT NULL,
+    [ITEM_ID]                 BIGINT          NOT NULL,
+    [ACCOUNT_ID]              BIGINT          NOT NULL,
+    [ITEM_COUNT]              INT             NOT NULL,
+    [ITEM_NAME]               NCHAR (100)     NULL,
+    [GROUP_NAME]              NCHAR (100)     NULL,
+    [CATEGORY_NAME]           NCHAR (100)     NULL,
+    [ITEM_PRICE]              DECIMAL (18, 2) NULL,
+    [DISCOUNT_RATE]           DECIMAL (18, 2) NULL,
+    [TAX_RATE]                DECIMAL (18, 2) NULL,
+    [SUB_TOTAL]               DECIMAL (18, 2) NULL,
+    [SUB_TOTAL_WITH_MODIFIER] DECIMAL (18, 2) NULL,
+	[MODIFIED_TIME]    	      ROWVERSION      NULL,
+    [MODIFIER_BY]             BIGINT             NULL,
+    CONSTRAINT [PK_RC_TICKET_ITEM] PRIMARY KEY CLUSTERED ([TICKET_ID] ASC),
+	CONSTRAINT [FK_RC_TICKET_ITEM_RC_ACCOUNTS] FOREIGN KEY ([ACCOUNT_ID]) REFERENCES [dbo].[RC_ACCOUNTS] ([ACCOUNT_ID]),
+	CONSTRAINT [FK_RC_TICKET_ITEM_RC_TICKETS] FOREIGN KEY ([TICKET_ID]) REFERENCES [dbo].[RC_TICKETS] ([TICKET_ID]),
+);
+
