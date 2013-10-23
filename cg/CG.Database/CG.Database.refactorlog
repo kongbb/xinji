@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="1d198323-1788-4de7-bd5b-ac8a2ac741e8" ChangeDateTime="10/23/2013 11:08:46">
+    <Property Name="ElementName" Value="[dbo].[User].[Restaurant]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RestaurantId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0668c17c-1a61-4041-bc4e-35b457c3701f" ChangeDateTime="10/23/2013 11:15:32">
+    <Property Name="ElementName" Value="[dbo].[Transaction].[SubTotal]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Transaction]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TotalPriceWithoutTax" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="169086d2-bd4a-4577-ae22-77122fb9ab27" ChangeDateTime="10/23/2013 11:15:55">
+    <Property Name="ElementName" Value="[dbo].[Transaction].[TotalPriceWithoutTax]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Transaction]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AggregateAmountWithoutTax" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f45bd863-39a9-44a9-ad93-278b0305520f" ChangeDateTime="10/23/2013 11:30:08">
+    <Property Name="ElementName" Value="[dbo].[FK_Ticket_TicketStatus]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Ticket]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Order_OrderStatus]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7c44ce68-9721-4063-8632-c3aad0d40088" ChangeDateTime="10/23/2013 11:30:15">
+    <Property Name="ElementName" Value="[dbo].[FK_Ticket_User]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Ticket]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Order_User]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5cf9230d-73fd-46c7-acc2-dcfa785b9e8d" ChangeDateTime="10/23/2013 11:30:21">
+    <Property Name="ElementName" Value="[dbo].[Ticket].[TicketStatusId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ticket]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OrderStatusId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="51966443-30f6-45a8-96e1-96455dae701e" ChangeDateTime="10/23/2013 11:31:13">
+    <Property Name="ElementName" Value="[dbo].[FK_Order_User]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Ticket]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Order_CreatedUser]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b19c993b-4355-4e3e-b03f-275d26ca914a" ChangeDateTime="10/23/2013 11:31:47">
+    <Property Name="ElementName" Value="[dbo].[FK_Order_UpdatedUser]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Ticket]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Order_UpdatedByUser]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a0ad0529-a28d-45d3-820b-d4d44c7cdb12" ChangeDateTime="10/23/2013 11:32:07">
+    <Property Name="ElementName" Value="[dbo].[FK_Order_CreatedUser]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Ticket]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Order_CreatedByUser]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bb51e1aa-069f-4024-9846-0916dc760110" ChangeDateTime="10/23/2013 11:32:21">
+    <Property Name="ElementName" Value="[dbo].[FK_Ticket_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Ticket]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Order_Restaurant]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d7256b6f-c4fd-43d9-9509-d781ccb1ad95" ChangeDateTime="10/23/2013 11:50:09">
+    <Property Name="ElementName" Value="[dbo].[Shift].[RestaurantId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Shift]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ShiftTypeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ed7b5803-748b-43a6-b79c-a6e636b4bb75" ChangeDateTime="10/23/2013 12:17:04">
+    <Property Name="ElementName" Value="[dbo].[Ticket].[OrderType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ticket]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OrderTypeId" />
+  </Operation>
+</Operations>

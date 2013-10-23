@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Country]
+(
+	[Id] BIGINT NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [Code] NVARCHAR(50) NOT NULL, 
+    [ShortCode] NVARCHAR(50) NOT NULL
+)

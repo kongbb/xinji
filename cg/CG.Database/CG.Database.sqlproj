@@ -64,27 +64,27 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\TestTable.sql" />
-    <Build Include="dbo\Tables\RC_ACTION_HISTORY.sql" />
-    <Build Include="dbo\Tables\RC_ACCOUNTS.sql" />
-    <Build Include="dbo\Tables\CR_USERS.sql" />
-    <Build Include="dbo\Tables\CR_TRANSACTION.sql" />
-    <Build Include="dbo\Tables\CR_TICKETS.sql" />
-    <Build Include="dbo\Tables\CR_TICKET_MODIFIER.sql" />
-    <Build Include="dbo\Tables\CR_TICKET_ITEM.sql" />
-    <Build Include="dbo\Tables\CR_TAX.sql" />
-    <Build Include="dbo\Tables\CR_SHIFT.sql" />
-    <Build Include="dbo\Tables\CR_RESTO_PAYMENT_MOTHOD.sql" />
-    <Build Include="dbo\Tables\CR_PRINTER_CONFIG.sql" />
-    <Build Include="dbo\Tables\CR_PAYMENT_METHOD.sql" />
-    <Build Include="dbo\Tables\CR_MENUITEM_MODIFIER_GROUP.sql" />
-    <Build Include="dbo\Tables\CR_MENU_MODIFIER_GROUP.sql" />
-    <Build Include="dbo\Tables\CR_MENU_MODIFER.sql" />
-    <Build Include="dbo\Tables\CR_MENU_ITEM.sql" />
-    <Build Include="dbo\Tables\CR_MENU_GROUP.sql" />
-    <Build Include="dbo\Tables\CR_MENU_CATEGORY.sql" />
-    <Build Include="dbo\Tables\CR_ACCOUNT_TABLE.sql" />
-    <Build Include="dbo\Tables\CR_ACCOUNT_LEVEL_TYPES.sql" />
-    <Build Include="dbo\Tables\CR_ACCOUNT_LEVEL.sql" />
-    <Build Include="dbo\Tables\RC_RESTAURANT.sql" />
+    <Build Include="dbo\Tables\Province.sql" />
+    <Build Include="dbo\Tables\Country.sql" />
+    <Build Include="dbo\Tables\Restaurant.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\Transaction.sql" />
+    <Build Include="dbo\Tables\PaymentType.sql" />
+    <Build Include="dbo\Tables\Terminal.sql" />
+    <Build Include="dbo\Tables\Order.sql" />
+    <Build Include="dbo\Tables\OrderStatus.sql" />
+    <Build Include="dbo\Tables\OrderItem.sql" />
+    <Build Include="dbo\Tables\MenuItem.sql" />
+    <Build Include="dbo\Tables\MenuItemCategory.sql" />
+    <Build Include="dbo\Tables\UserType.sql" />
+    <Build Include="dbo\Tables\ShiftType.sql" />
+    <Build Include="dbo\Tables\Shift.sql" />
+    <Build Include="dbo\Tables\MenuItemShift.sql" />
+    <Build Include="dbo\Tables\Tax.sql" />
+    <Build Include="dbo\Tables\OrderType.sql" />
+    <Build Include="dbo\Tables\OrderTypeTax.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="CG.Database.refactorlog" />
   </ItemGroup>
 </Project>
