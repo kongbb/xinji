@@ -4,10 +4,341 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CGModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CGModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="CGModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="CGModel.Store.__RefactorLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Country" EntityType="CGModel.Store.Country" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MenuItem" EntityType="CGModel.Store.MenuItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MenuItemCategory" EntityType="CGModel.Store.MenuItemCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MenuItemShift" EntityType="CGModel.Store.MenuItemShift" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Order" EntityType="CGModel.Store.Order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderItem" EntityType="CGModel.Store.OrderItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderStatus" EntityType="CGModel.Store.OrderStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderType" EntityType="CGModel.Store.OrderType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderTypeTax" EntityType="CGModel.Store.OrderTypeTax" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PaymentType" EntityType="CGModel.Store.PaymentType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Province" EntityType="CGModel.Store.Province" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Restaurant" EntityType="CGModel.Store.Restaurant" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Shift" EntityType="CGModel.Store.Shift" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShiftType" EntityType="CGModel.Store.ShiftType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Table" EntityType="CGModel.Store.Table" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TableMeal" EntityType="CGModel.Store.TableMeal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TableMealOrder" EntityType="CGModel.Store.TableMealOrder" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TableStatus" EntityType="CGModel.Store.TableStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tax" EntityType="CGModel.Store.Tax" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Terminal" EntityType="CGModel.Store.Terminal" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TestTable" EntityType="CGModel.Store.TestTable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Transaction" EntityType="CGModel.Store.Transaction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="CGModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserType" EntityType="CGModel.Store.UserType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_MenuItem_MenuItemCategory" Association="CGModel.Store.FK_MenuItem_MenuItemCategory">
+            <End Role="MenuItemCategory" EntitySet="MenuItemCategory" />
+            <End Role="MenuItem" EntitySet="MenuItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItem_UpdatedBy" Association="CGModel.Store.FK_MenuItem_UpdatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="MenuItem" EntitySet="MenuItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItemCategory_Restaurant" Association="CGModel.Store.FK_MenuItemCategory_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurant" />
+            <End Role="MenuItemCategory" EntitySet="MenuItemCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItemShift_MenuItem" Association="CGModel.Store.FK_MenuItemShift_MenuItem">
+            <End Role="MenuItem" EntitySet="MenuItem" />
+            <End Role="MenuItemShift" EntitySet="MenuItemShift" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItemShift_Shift" Association="CGModel.Store.FK_MenuItemShift_Shift">
+            <End Role="Shift" EntitySet="Shift" />
+            <End Role="MenuItemShift" EntitySet="MenuItemShift" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_CreatedByUser" Association="CGModel.Store.FK_Order_CreatedByUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderStatus" Association="CGModel.Store.FK_Order_OrderStatus">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderType" Association="CGModel.Store.FK_Order_OrderType">
+            <End Role="OrderType" EntitySet="OrderType" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Restaurant" Association="CGModel.Store.FK_Order_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurant" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_UpdatedByUser" Association="CGModel.Store.FK_Order_UpdatedByUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_MenuItem" Association="CGModel.Store.FK_OrderItem_MenuItem">
+            <End Role="MenuItem" EntitySet="MenuItem" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="CGModel.Store.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderTypeTax_OrderTypeId" Association="CGModel.Store.FK_OrderTypeTax_OrderTypeId">
+            <End Role="OrderType" EntitySet="OrderType" />
+            <End Role="OrderTypeTax" EntitySet="OrderTypeTax" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderTypeTax_Tax" Association="CGModel.Store.FK_OrderTypeTax_Tax">
+            <End Role="Tax" EntitySet="Tax" />
+            <End Role="OrderTypeTax" EntitySet="OrderTypeTax" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Province_Country" Association="CGModel.Store.FK_Province_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Province" EntitySet="Province" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Province" Association="CGModel.Store.FK_Restaurant_Province">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="Restaurant" EntitySet="Restaurant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shift_ShiftType" Association="CGModel.Store.FK_Shift_ShiftType">
+            <End Role="ShiftType" EntitySet="ShiftType" />
+            <End Role="Shift" EntitySet="Shift" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftType_Restaurant" Association="CGModel.Store.FK_ShiftType_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurant" />
+            <End Role="ShiftType" EntitySet="ShiftType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableMeal_Table" Association="CGModel.Store.FK_TableMeal_Table">
+            <End Role="Table" EntitySet="Table" />
+            <End Role="TableMeal" EntitySet="TableMeal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableMeal_TableStatus" Association="CGModel.Store.FK_TableMeal_TableStatus">
+            <End Role="TableStatus" EntitySet="TableStatus" />
+            <End Role="TableMeal" EntitySet="TableMeal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableOrder_Order" Association="CGModel.Store.FK_TableOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="TableMealOrder" EntitySet="TableMealOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableOrder_TableMeal" Association="CGModel.Store.FK_TableOrder_TableMeal">
+            <End Role="TableMeal" EntitySet="TableMeal" />
+            <End Role="TableMealOrder" EntitySet="TableMealOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tax_Restaurant" Association="CGModel.Store.FK_Tax_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurant" />
+            <End Role="Tax" EntitySet="Tax" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminal_Restaurant" Association="CGModel.Store.FK_Terminal_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurant" />
+            <End Role="Terminal" EntitySet="Terminal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_PaymentType" Association="CGModel.Store.FK_Transaction_PaymentType">
+            <End Role="PaymentType" EntitySet="PaymentType" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_TableMeal" Association="CGModel.Store.FK_Transaction_TableMeal">
+            <End Role="TableMeal" EntitySet="TableMeal" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User" Association="CGModel.Store.FK_Transaction_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Restaurant" Association="CGModel.Store.FK_User_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurant" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="CGModel.Store.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShortCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MenuItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime2" Nullable="false" />
+          <Property Name="UpdatedBy" Type="bigint" Nullable="false" />
+          <Property Name="CategoryId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuItemCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RestaurantId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuItemShift">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="MenuItemId" Type="bigint" Nullable="false" />
+          <Property Name="ShiftId" Type="bigint" />
+          <Property Name="Price" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="OrderTypeId" Type="bigint" Nullable="false" />
+          <Property Name="OrderStatusId" Type="bigint" Nullable="false" />
+          <Property Name="TableNumber" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime2" Nullable="false" />
+          <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime2" Nullable="false" />
+          <Property Name="UpdatedBy" Type="bigint" Nullable="false" />
+          <Property Name="RestaurantId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="OrderId" Type="bigint" Nullable="false" />
+          <Property Name="MenuItemId" Type="bigint" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrderType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrderTypeTax">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="OrderTypeId" Type="bigint" Nullable="false" />
+          <Property Name="TaxId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CountryId" Type="bigint" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressLine3" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProvinceId" Type="bigint" />
+          <Property Name="LandLineNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="ShiftTypeId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShiftType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RestaurantId" Type="bigint" Nullable="false" />
+          <Property Name="StartTime" Type="datetime2" />
+          <Property Name="EndTime" Type="datetime2" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Seats" Type="int" Nullable="false" />
+          <Property Name="MaxSeats" Type="int" Nullable="false" />
+          <Property Name="IsAvailable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableMeal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="TableId" Type="bigint" Nullable="false" />
+          <Property Name="TableStatusId" Type="bigint" Nullable="false" />
+          <Property Name="StartedTime" Type="datetime2" />
+          <Property Name="EndedTime" Type="datetime2" />
+          <Property Name="NumberOfPeople" Type="int" />
+        </EntityType>
+        <EntityType Name="TableMealOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="TableMealId" Type="bigint" Nullable="false" />
+          <Property Name="OrderId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tax">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Rate" Type="decimal" Nullable="false" Scale="3" />
+          <Property Name="RestaurantId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Terminal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RestaurantId" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="TestTable">
           <Key>
             <PropertyRef Name="Id" />
@@ -15,13 +346,536 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="TableMealId" Type="bigint" Nullable="false" />
+          <Property Name="PaymentTypeId" Type="bigint" Nullable="false" />
+          <Property Name="TransactionTime" Type="datetime2" />
+          <Property Name="AggregateAmountWithoutTax" Type="decimal" Scale="2" />
+          <Property Name="Tax" Type="decimal" Scale="2" />
+          <Property Name="Discount" Type="decimal" Scale="2" />
+          <Property Name="Tip" Type="decimal" Scale="2" />
+          <Property Name="TerminalId" Type="bigint" />
+          <Property Name="Note" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDateTime" Type="datetime2" Nullable="false" />
+          <Property Name="UpdatedBy" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="RestaurantId" Type="bigint" Nullable="false" />
+          <Property Name="UserTypeId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_MenuItem_MenuItemCategory">
+          <End Role="MenuItemCategory" Type="CGModel.Store.MenuItemCategory" Multiplicity="1" />
+          <End Role="MenuItem" Type="CGModel.Store.MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItemCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItem">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItem_UpdatedBy">
+          <End Role="User" Type="CGModel.Store.User" Multiplicity="1" />
+          <End Role="MenuItem" Type="CGModel.Store.MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItem">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItemCategory_Restaurant">
+          <End Role="Restaurant" Type="CGModel.Store.Restaurant" Multiplicity="1" />
+          <End Role="MenuItemCategory" Type="CGModel.Store.MenuItemCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItemCategory">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItemShift_MenuItem">
+          <End Role="MenuItem" Type="CGModel.Store.MenuItem" Multiplicity="1" />
+          <End Role="MenuItemShift" Type="CGModel.Store.MenuItemShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItemShift">
+              <PropertyRef Name="MenuItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItemShift_Shift">
+          <End Role="Shift" Type="CGModel.Store.Shift" Multiplicity="0..1" />
+          <End Role="MenuItemShift" Type="CGModel.Store.MenuItemShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItemShift">
+              <PropertyRef Name="ShiftId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_CreatedByUser">
+          <End Role="User" Type="CGModel.Store.User" Multiplicity="1" />
+          <End Role="Order" Type="CGModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderStatus">
+          <End Role="OrderStatus" Type="CGModel.Store.OrderStatus" Multiplicity="1" />
+          <End Role="Order" Type="CGModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OrderStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderType">
+          <End Role="OrderType" Type="CGModel.Store.OrderType" Multiplicity="1" />
+          <End Role="Order" Type="CGModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OrderTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Restaurant">
+          <End Role="Restaurant" Type="CGModel.Store.Restaurant" Multiplicity="0..1" />
+          <End Role="Order" Type="CGModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_UpdatedByUser">
+          <End Role="User" Type="CGModel.Store.User" Multiplicity="1" />
+          <End Role="Order" Type="CGModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_MenuItem">
+          <End Role="MenuItem" Type="CGModel.Store.MenuItem" Multiplicity="1" />
+          <End Role="OrderItem" Type="CGModel.Store.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="MenuItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Role="Order" Type="CGModel.Store.Order" Multiplicity="1" />
+          <End Role="OrderItem" Type="CGModel.Store.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderTypeTax_OrderTypeId">
+          <End Role="OrderType" Type="CGModel.Store.OrderType" Multiplicity="1" />
+          <End Role="OrderTypeTax" Type="CGModel.Store.OrderTypeTax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderTypeTax">
+              <PropertyRef Name="OrderTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderTypeTax_Tax">
+          <End Role="Tax" Type="CGModel.Store.Tax" Multiplicity="1" />
+          <End Role="OrderTypeTax" Type="CGModel.Store.OrderTypeTax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tax">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderTypeTax">
+              <PropertyRef Name="TaxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Province_Country">
+          <End Role="Country" Type="CGModel.Store.Country" Multiplicity="1" />
+          <End Role="Province" Type="CGModel.Store.Province" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Province">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Province">
+          <End Role="Province" Type="CGModel.Store.Province" Multiplicity="0..1" />
+          <End Role="Restaurant" Type="CGModel.Store.Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shift_ShiftType">
+          <End Role="ShiftType" Type="CGModel.Store.ShiftType" Multiplicity="1" />
+          <End Role="Shift" Type="CGModel.Store.Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiftType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="ShiftTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftType_Restaurant">
+          <End Role="Restaurant" Type="CGModel.Store.Restaurant" Multiplicity="1" />
+          <End Role="ShiftType" Type="CGModel.Store.ShiftType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShiftType">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableMeal_Table">
+          <End Role="Table" Type="CGModel.Store.Table" Multiplicity="1" />
+          <End Role="TableMeal" Type="CGModel.Store.TableMeal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableMeal">
+              <PropertyRef Name="TableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableMeal_TableStatus">
+          <End Role="TableStatus" Type="CGModel.Store.TableStatus" Multiplicity="1" />
+          <End Role="TableMeal" Type="CGModel.Store.TableMeal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableMeal">
+              <PropertyRef Name="TableStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableOrder_Order">
+          <End Role="Order" Type="CGModel.Store.Order" Multiplicity="1" />
+          <End Role="TableMealOrder" Type="CGModel.Store.TableMealOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableMealOrder">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableOrder_TableMeal">
+          <End Role="TableMeal" Type="CGModel.Store.TableMeal" Multiplicity="1" />
+          <End Role="TableMealOrder" Type="CGModel.Store.TableMealOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableMeal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableMealOrder">
+              <PropertyRef Name="TableMealId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tax_Restaurant">
+          <End Role="Restaurant" Type="CGModel.Store.Restaurant" Multiplicity="1" />
+          <End Role="Tax" Type="CGModel.Store.Tax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tax">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminal_Restaurant">
+          <End Role="Restaurant" Type="CGModel.Store.Restaurant" Multiplicity="1" />
+          <End Role="Terminal" Type="CGModel.Store.Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_PaymentType">
+          <End Role="PaymentType" Type="CGModel.Store.PaymentType" Multiplicity="1" />
+          <End Role="Transaction" Type="CGModel.Store.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="PaymentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_TableMeal">
+          <End Role="TableMeal" Type="CGModel.Store.TableMeal" Multiplicity="1" />
+          <End Role="Transaction" Type="CGModel.Store.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableMeal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TableMealId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User">
+          <End Role="User" Type="CGModel.Store.User" Multiplicity="1" />
+          <End Role="Transaction" Type="CGModel.Store.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Restaurant">
+          <End Role="Restaurant" Type="CGModel.Store.Restaurant" Multiplicity="1" />
+          <End Role="User" Type="CGModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserType">
+          <End Role="UserType" Type="CGModel.Store.UserType" Multiplicity="1" />
+          <End Role="User" Type="CGModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CGModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="CGEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="TestTables" EntityType="CGModel.TestTable" />
+          <EntitySet Name="C__RefactorLog" EntityType="CGModel.C__RefactorLog" />
+          <EntitySet Name="Countries" EntityType="CGModel.Country" />
+          <EntitySet Name="MenuItems" EntityType="CGModel.MenuItem" />
+          <EntitySet Name="MenuItemCategories" EntityType="CGModel.MenuItemCategory" />
+          <EntitySet Name="MenuItemShifts" EntityType="CGModel.MenuItemShift" />
+          <EntitySet Name="Orders" EntityType="CGModel.Order" />
+          <EntitySet Name="OrderItems" EntityType="CGModel.OrderItem" />
+          <EntitySet Name="OrderStatus" EntityType="CGModel.OrderStatu" />
+          <EntitySet Name="OrderTypes" EntityType="CGModel.OrderType" />
+          <EntitySet Name="OrderTypeTaxes" EntityType="CGModel.OrderTypeTax" />
+          <EntitySet Name="PaymentTypes" EntityType="CGModel.PaymentType" />
+          <EntitySet Name="Provinces" EntityType="CGModel.Province" />
+          <EntitySet Name="Restaurants" EntityType="CGModel.Restaurant" />
+          <EntitySet Name="Shifts" EntityType="CGModel.Shift" />
+          <EntitySet Name="ShiftTypes" EntityType="CGModel.ShiftType" />
+          <EntitySet Name="Tables" EntityType="CGModel.Table" />
+          <EntitySet Name="TableMeals" EntityType="CGModel.TableMeal" />
+          <EntitySet Name="TableMealOrders" EntityType="CGModel.TableMealOrder" />
+          <EntitySet Name="TableStatus" EntityType="CGModel.TableStatu" />
+          <EntitySet Name="Taxes" EntityType="CGModel.Tax" />
+          <EntitySet Name="Terminals" EntityType="CGModel.Terminal" />
+          <EntitySet Name="Transactions" EntityType="CGModel.Transaction" />
+          <EntitySet Name="Users" EntityType="CGModel.User" />
+          <EntitySet Name="UserTypes" EntityType="CGModel.UserType" />
+          <AssociationSet Name="FK_Province_Country" Association="CGModel.FK_Province_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Province" EntitySet="Provinces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItem_MenuItemCategory" Association="CGModel.FK_MenuItem_MenuItemCategory">
+            <End Role="MenuItemCategory" EntitySet="MenuItemCategories" />
+            <End Role="MenuItem" EntitySet="MenuItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItem_UpdatedBy" Association="CGModel.FK_MenuItem_UpdatedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="MenuItem" EntitySet="MenuItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItemShift_MenuItem" Association="CGModel.FK_MenuItemShift_MenuItem">
+            <End Role="MenuItem" EntitySet="MenuItems" />
+            <End Role="MenuItemShift" EntitySet="MenuItemShifts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_MenuItem" Association="CGModel.FK_OrderItem_MenuItem">
+            <End Role="MenuItem" EntitySet="MenuItems" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItemCategory_Restaurant" Association="CGModel.FK_MenuItemCategory_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="MenuItemCategory" EntitySet="MenuItemCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItemShift_Shift" Association="CGModel.FK_MenuItemShift_Shift">
+            <End Role="Shift" EntitySet="Shifts" />
+            <End Role="MenuItemShift" EntitySet="MenuItemShifts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_CreatedByUser" Association="CGModel.FK_Order_CreatedByUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderStatus" Association="CGModel.FK_Order_OrderStatus">
+            <End Role="OrderStatu" EntitySet="OrderStatus" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderType" Association="CGModel.FK_Order_OrderType">
+            <End Role="OrderType" EntitySet="OrderTypes" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Restaurant" Association="CGModel.FK_Order_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_UpdatedByUser" Association="CGModel.FK_Order_UpdatedByUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="CGModel.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableOrder_Order" Association="CGModel.FK_TableOrder_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="TableMealOrder" EntitySet="TableMealOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderTypeTax_OrderTypeId" Association="CGModel.FK_OrderTypeTax_OrderTypeId">
+            <End Role="OrderType" EntitySet="OrderTypes" />
+            <End Role="OrderTypeTax" EntitySet="OrderTypeTaxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderTypeTax_Tax" Association="CGModel.FK_OrderTypeTax_Tax">
+            <End Role="Tax" EntitySet="Taxes" />
+            <End Role="OrderTypeTax" EntitySet="OrderTypeTaxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_PaymentType" Association="CGModel.FK_Transaction_PaymentType">
+            <End Role="PaymentType" EntitySet="PaymentTypes" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Province" Association="CGModel.FK_Restaurant_Province">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="Restaurant" EntitySet="Restaurants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftType_Restaurant" Association="CGModel.FK_ShiftType_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="ShiftType" EntitySet="ShiftTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tax_Restaurant" Association="CGModel.FK_Tax_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="Tax" EntitySet="Taxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminal_Restaurant" Association="CGModel.FK_Terminal_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="Terminal" EntitySet="Terminals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Restaurant" Association="CGModel.FK_User_Restaurant">
+            <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shift_ShiftType" Association="CGModel.FK_Shift_ShiftType">
+            <End Role="ShiftType" EntitySet="ShiftTypes" />
+            <End Role="Shift" EntitySet="Shifts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableMeal_Table" Association="CGModel.FK_TableMeal_Table">
+            <End Role="Table" EntitySet="Tables" />
+            <End Role="TableMeal" EntitySet="TableMeals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableMeal_TableStatus" Association="CGModel.FK_TableMeal_TableStatus">
+            <End Role="TableStatu" EntitySet="TableStatus" />
+            <End Role="TableMeal" EntitySet="TableMeals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableOrder_TableMeal" Association="CGModel.FK_TableOrder_TableMeal">
+            <End Role="TableMeal" EntitySet="TableMeals" />
+            <End Role="TableMealOrder" EntitySet="TableMealOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_TableMeal" Association="CGModel.FK_Transaction_TableMeal">
+            <End Role="TableMeal" EntitySet="TableMeals" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User" Association="CGModel.FK_Transaction_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="CGModel.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TestTable">
           <Key>
@@ -30,6 +884,639 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Type="Guid" Name="OperationKey" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShortCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Provinces" Relationship="CGModel.FK_Province_Country" FromRole="Country" ToRole="Province" />
+        </EntityType>
+        <EntityType Name="MenuItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDateTime" Nullable="false" Precision="7" />
+          <Property Type="Int64" Name="UpdatedBy" Nullable="false" />
+          <Property Type="Int64" Name="CategoryId" Nullable="false" />
+          <NavigationProperty Name="MenuItemCategory" Relationship="CGModel.FK_MenuItem_MenuItemCategory" FromRole="MenuItem" ToRole="MenuItemCategory" />
+          <NavigationProperty Name="User" Relationship="CGModel.FK_MenuItem_UpdatedBy" FromRole="MenuItem" ToRole="User" />
+          <NavigationProperty Name="MenuItemShifts" Relationship="CGModel.FK_MenuItemShift_MenuItem" FromRole="MenuItem" ToRole="MenuItemShift" />
+          <NavigationProperty Name="OrderItems" Relationship="CGModel.FK_OrderItem_MenuItem" FromRole="MenuItem" ToRole="OrderItem" />
+        </EntityType>
+        <EntityType Name="MenuItemCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="RestaurantId" Nullable="false" />
+          <NavigationProperty Name="MenuItems" Relationship="CGModel.FK_MenuItem_MenuItemCategory" FromRole="MenuItemCategory" ToRole="MenuItem" />
+          <NavigationProperty Name="Restaurant" Relationship="CGModel.FK_MenuItemCategory_Restaurant" FromRole="MenuItemCategory" ToRole="Restaurant" />
+        </EntityType>
+        <EntityType Name="MenuItemShift">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="MenuItemId" Nullable="false" />
+          <Property Type="Int64" Name="ShiftId" />
+          <Property Type="Decimal" Name="Price" Precision="18" Scale="2" />
+          <NavigationProperty Name="MenuItem" Relationship="CGModel.FK_MenuItemShift_MenuItem" FromRole="MenuItemShift" ToRole="MenuItem" />
+          <NavigationProperty Name="Shift" Relationship="CGModel.FK_MenuItemShift_Shift" FromRole="MenuItemShift" ToRole="Shift" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="OrderTypeId" Nullable="false" />
+          <Property Type="Int64" Name="OrderStatusId" Nullable="false" />
+          <Property Type="Int32" Name="TableNumber" />
+          <Property Type="DateTime" Name="CreatedDateTime" Nullable="false" Precision="7" />
+          <Property Type="Int64" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDateTime" Nullable="false" Precision="7" />
+          <Property Type="Int64" Name="UpdatedBy" Nullable="false" />
+          <Property Type="Int64" Name="RestaurantId" />
+          <NavigationProperty Name="User" Relationship="CGModel.FK_Order_CreatedByUser" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="OrderStatu" Relationship="CGModel.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatu" />
+          <NavigationProperty Name="OrderType" Relationship="CGModel.FK_Order_OrderType" FromRole="Order" ToRole="OrderType" />
+          <NavigationProperty Name="Restaurant" Relationship="CGModel.FK_Order_Restaurant" FromRole="Order" ToRole="Restaurant" />
+          <NavigationProperty Name="User1" Relationship="CGModel.FK_Order_UpdatedByUser" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="OrderItems" Relationship="CGModel.FK_OrderItem_Order" FromRole="Order" ToRole="OrderItem" />
+          <NavigationProperty Name="TableMealOrders" Relationship="CGModel.FK_TableOrder_Order" FromRole="Order" ToRole="TableMealOrder" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="OrderId" Nullable="false" />
+          <Property Type="Int64" Name="MenuItemId" Nullable="false" />
+          <Property Type="Int32" Name="Count" Nullable="false" />
+          <NavigationProperty Name="MenuItem" Relationship="CGModel.FK_OrderItem_MenuItem" FromRole="OrderItem" ToRole="MenuItem" />
+          <NavigationProperty Name="Order" Relationship="CGModel.FK_OrderItem_Order" FromRole="OrderItem" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="OrderStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="CGModel.FK_Order_OrderStatus" FromRole="OrderStatu" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="OrderType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="CGModel.FK_Order_OrderType" FromRole="OrderType" ToRole="Order" />
+          <NavigationProperty Name="OrderTypeTaxes" Relationship="CGModel.FK_OrderTypeTax_OrderTypeId" FromRole="OrderType" ToRole="OrderTypeTax" />
+        </EntityType>
+        <EntityType Name="OrderTypeTax">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="OrderTypeId" Nullable="false" />
+          <Property Type="Int64" Name="TaxId" Nullable="false" />
+          <NavigationProperty Name="OrderType" Relationship="CGModel.FK_OrderTypeTax_OrderTypeId" FromRole="OrderTypeTax" ToRole="OrderType" />
+          <NavigationProperty Name="Tax" Relationship="CGModel.FK_OrderTypeTax_Tax" FromRole="OrderTypeTax" ToRole="Tax" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Transactions" Relationship="CGModel.FK_Transaction_PaymentType" FromRole="PaymentType" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="CountryId" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Country" Relationship="CGModel.FK_Province_Country" FromRole="Province" ToRole="Country" />
+          <NavigationProperty Name="Restaurants" Relationship="CGModel.FK_Restaurant_Province" FromRole="Province" ToRole="Restaurant" />
+        </EntityType>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressLine1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressLine2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressLine3" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ZipCode" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactPerson" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="ProvinceId" />
+          <Property Type="String" Name="LandLineNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mobile" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MenuItemCategories" Relationship="CGModel.FK_MenuItemCategory_Restaurant" FromRole="Restaurant" ToRole="MenuItemCategory" />
+          <NavigationProperty Name="Orders" Relationship="CGModel.FK_Order_Restaurant" FromRole="Restaurant" ToRole="Order" />
+          <NavigationProperty Name="Province" Relationship="CGModel.FK_Restaurant_Province" FromRole="Restaurant" ToRole="Province" />
+          <NavigationProperty Name="ShiftTypes" Relationship="CGModel.FK_ShiftType_Restaurant" FromRole="Restaurant" ToRole="ShiftType" />
+          <NavigationProperty Name="Taxes" Relationship="CGModel.FK_Tax_Restaurant" FromRole="Restaurant" ToRole="Tax" />
+          <NavigationProperty Name="Terminals" Relationship="CGModel.FK_Terminal_Restaurant" FromRole="Restaurant" ToRole="Terminal" />
+          <NavigationProperty Name="Users" Relationship="CGModel.FK_User_Restaurant" FromRole="Restaurant" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="ShiftTypeId" Nullable="false" />
+          <NavigationProperty Name="MenuItemShifts" Relationship="CGModel.FK_MenuItemShift_Shift" FromRole="Shift" ToRole="MenuItemShift" />
+          <NavigationProperty Name="ShiftType" Relationship="CGModel.FK_Shift_ShiftType" FromRole="Shift" ToRole="ShiftType" />
+        </EntityType>
+        <EntityType Name="ShiftType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="RestaurantId" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Precision="7" />
+          <Property Type="DateTime" Name="EndTime" Precision="7" />
+          <NavigationProperty Name="Restaurant" Relationship="CGModel.FK_ShiftType_Restaurant" FromRole="ShiftType" ToRole="Restaurant" />
+          <NavigationProperty Name="Shifts" Relationship="CGModel.FK_Shift_ShiftType" FromRole="ShiftType" ToRole="Shift" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Seats" Nullable="false" />
+          <Property Type="Int32" Name="MaxSeats" Nullable="false" />
+          <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+          <NavigationProperty Name="TableMeals" Relationship="CGModel.FK_TableMeal_Table" FromRole="Table" ToRole="TableMeal" />
+        </EntityType>
+        <EntityType Name="TableMeal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="TableId" Nullable="false" />
+          <Property Type="Int64" Name="TableStatusId" Nullable="false" />
+          <Property Type="DateTime" Name="StartedTime" Precision="7" />
+          <Property Type="DateTime" Name="EndedTime" Precision="7" />
+          <Property Type="Int32" Name="NumberOfPeople" />
+          <NavigationProperty Name="Table" Relationship="CGModel.FK_TableMeal_Table" FromRole="TableMeal" ToRole="Table" />
+          <NavigationProperty Name="TableStatu" Relationship="CGModel.FK_TableMeal_TableStatus" FromRole="TableMeal" ToRole="TableStatu" />
+          <NavigationProperty Name="TableMealOrders" Relationship="CGModel.FK_TableOrder_TableMeal" FromRole="TableMeal" ToRole="TableMealOrder" />
+          <NavigationProperty Name="Transactions" Relationship="CGModel.FK_Transaction_TableMeal" FromRole="TableMeal" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="TableMealOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="TableMealId" Nullable="false" />
+          <Property Type="Int64" Name="OrderId" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="CGModel.FK_TableOrder_Order" FromRole="TableMealOrder" ToRole="Order" />
+          <NavigationProperty Name="TableMeal" Relationship="CGModel.FK_TableOrder_TableMeal" FromRole="TableMealOrder" ToRole="TableMeal" />
+        </EntityType>
+        <EntityType Name="TableStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TableMeals" Relationship="CGModel.FK_TableMeal_TableStatus" FromRole="TableStatu" ToRole="TableMeal" />
+        </EntityType>
+        <EntityType Name="Tax">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Rate" Nullable="false" Precision="18" Scale="3" />
+          <Property Type="Int64" Name="RestaurantId" Nullable="false" />
+          <NavigationProperty Name="OrderTypeTaxes" Relationship="CGModel.FK_OrderTypeTax_Tax" FromRole="Tax" ToRole="OrderTypeTax" />
+          <NavigationProperty Name="Restaurant" Relationship="CGModel.FK_Tax_Restaurant" FromRole="Tax" ToRole="Restaurant" />
+        </EntityType>
+        <EntityType Name="Terminal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="RestaurantId" Nullable="false" />
+          <NavigationProperty Name="Restaurant" Relationship="CGModel.FK_Terminal_Restaurant" FromRole="Terminal" ToRole="Restaurant" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="TableMealId" Nullable="false" />
+          <Property Type="Int64" Name="PaymentTypeId" Nullable="false" />
+          <Property Type="DateTime" Name="TransactionTime" Precision="7" />
+          <Property Type="Decimal" Name="AggregateAmountWithoutTax" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Tax" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Discount" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Tip" Precision="18" Scale="2" />
+          <Property Type="Int64" Name="TerminalId" />
+          <Property Type="String" Name="Note" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="UpdatedDateTime" Nullable="false" Precision="7" />
+          <Property Type="Int64" Name="UpdatedBy" Nullable="false" />
+          <NavigationProperty Name="PaymentType" Relationship="CGModel.FK_Transaction_PaymentType" FromRole="Transaction" ToRole="PaymentType" />
+          <NavigationProperty Name="TableMeal" Relationship="CGModel.FK_Transaction_TableMeal" FromRole="Transaction" ToRole="TableMeal" />
+          <NavigationProperty Name="User" Relationship="CGModel.FK_Transaction_User" FromRole="Transaction" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="LoginName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="RestaurantId" Nullable="false" />
+          <Property Type="Int64" Name="UserTypeId" Nullable="false" />
+          <NavigationProperty Name="MenuItems" Relationship="CGModel.FK_MenuItem_UpdatedBy" FromRole="User" ToRole="MenuItem" />
+          <NavigationProperty Name="Orders" Relationship="CGModel.FK_Order_CreatedByUser" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Orders1" Relationship="CGModel.FK_Order_UpdatedByUser" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Restaurant" Relationship="CGModel.FK_User_Restaurant" FromRole="User" ToRole="Restaurant" />
+          <NavigationProperty Name="Transactions" Relationship="CGModel.FK_Transaction_User" FromRole="User" ToRole="Transaction" />
+          <NavigationProperty Name="UserType" Relationship="CGModel.FK_User_UserType" FromRole="User" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="CGModel.FK_User_UserType" FromRole="UserType" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Province_Country">
+          <End Type="CGModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="CGModel.Province" Role="Province" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Province">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItem_MenuItemCategory">
+          <End Type="CGModel.MenuItemCategory" Role="MenuItemCategory" Multiplicity="1" />
+          <End Type="CGModel.MenuItem" Role="MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItemCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItem">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItem_UpdatedBy">
+          <End Type="CGModel.User" Role="User" Multiplicity="1" />
+          <End Type="CGModel.MenuItem" Role="MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItem">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItemShift_MenuItem">
+          <End Type="CGModel.MenuItem" Role="MenuItem" Multiplicity="1" />
+          <End Type="CGModel.MenuItemShift" Role="MenuItemShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItemShift">
+              <PropertyRef Name="MenuItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_MenuItem">
+          <End Type="CGModel.MenuItem" Role="MenuItem" Multiplicity="1" />
+          <End Type="CGModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="MenuItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItemCategory_Restaurant">
+          <End Type="CGModel.Restaurant" Role="Restaurant" Multiplicity="1" />
+          <End Type="CGModel.MenuItemCategory" Role="MenuItemCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItemCategory">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItemShift_Shift">
+          <End Type="CGModel.Shift" Role="Shift" Multiplicity="0..1" />
+          <End Type="CGModel.MenuItemShift" Role="MenuItemShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MenuItemShift">
+              <PropertyRef Name="ShiftId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_CreatedByUser">
+          <End Type="CGModel.User" Role="User" Multiplicity="1" />
+          <End Type="CGModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderStatus">
+          <End Type="CGModel.OrderStatu" Role="OrderStatu" Multiplicity="1" />
+          <End Type="CGModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OrderStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderType">
+          <End Type="CGModel.OrderType" Role="OrderType" Multiplicity="1" />
+          <End Type="CGModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OrderTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Restaurant">
+          <End Type="CGModel.Restaurant" Role="Restaurant" Multiplicity="0..1" />
+          <End Type="CGModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_UpdatedByUser">
+          <End Type="CGModel.User" Role="User" Multiplicity="1" />
+          <End Type="CGModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Type="CGModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="CGModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableOrder_Order">
+          <End Type="CGModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="CGModel.TableMealOrder" Role="TableMealOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableMealOrder">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderTypeTax_OrderTypeId">
+          <End Type="CGModel.OrderType" Role="OrderType" Multiplicity="1" />
+          <End Type="CGModel.OrderTypeTax" Role="OrderTypeTax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderTypeTax">
+              <PropertyRef Name="OrderTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderTypeTax_Tax">
+          <End Type="CGModel.Tax" Role="Tax" Multiplicity="1" />
+          <End Type="CGModel.OrderTypeTax" Role="OrderTypeTax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tax">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderTypeTax">
+              <PropertyRef Name="TaxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_PaymentType">
+          <End Type="CGModel.PaymentType" Role="PaymentType" Multiplicity="1" />
+          <End Type="CGModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="PaymentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Province">
+          <End Type="CGModel.Province" Role="Province" Multiplicity="0..1" />
+          <End Type="CGModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftType_Restaurant">
+          <End Type="CGModel.Restaurant" Role="Restaurant" Multiplicity="1" />
+          <End Type="CGModel.ShiftType" Role="ShiftType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShiftType">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tax_Restaurant">
+          <End Type="CGModel.Restaurant" Role="Restaurant" Multiplicity="1" />
+          <End Type="CGModel.Tax" Role="Tax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tax">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminal_Restaurant">
+          <End Type="CGModel.Restaurant" Role="Restaurant" Multiplicity="1" />
+          <End Type="CGModel.Terminal" Role="Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Restaurant">
+          <End Type="CGModel.Restaurant" Role="Restaurant" Multiplicity="1" />
+          <End Type="CGModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RestaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shift_ShiftType">
+          <End Type="CGModel.ShiftType" Role="ShiftType" Multiplicity="1" />
+          <End Type="CGModel.Shift" Role="Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiftType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="ShiftTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableMeal_Table">
+          <End Type="CGModel.Table" Role="Table" Multiplicity="1" />
+          <End Type="CGModel.TableMeal" Role="TableMeal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableMeal">
+              <PropertyRef Name="TableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableMeal_TableStatus">
+          <End Type="CGModel.TableStatu" Role="TableStatu" Multiplicity="1" />
+          <End Type="CGModel.TableMeal" Role="TableMeal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableMeal">
+              <PropertyRef Name="TableStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableOrder_TableMeal">
+          <End Type="CGModel.TableMeal" Role="TableMeal" Multiplicity="1" />
+          <End Type="CGModel.TableMealOrder" Role="TableMealOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableMeal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableMealOrder">
+              <PropertyRef Name="TableMealId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_TableMeal">
+          <End Type="CGModel.TableMeal" Role="TableMeal" Multiplicity="1" />
+          <End Type="CGModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableMeal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TableMealId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User">
+          <End Type="CGModel.User" Role="User" Multiplicity="1" />
+          <End Type="CGModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserType">
+          <End Type="CGModel.UserType" Role="UserType" Multiplicity="1" />
+          <End Type="CGModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -41,6 +1528,257 @@
               <MappingFragment StoreEntitySet="TestTable">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="CGModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="CGModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuItems">
+            <EntityTypeMapping TypeName="CGModel.MenuItem">
+              <MappingFragment StoreEntitySet="MenuItem">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuItemCategories">
+            <EntityTypeMapping TypeName="CGModel.MenuItemCategory">
+              <MappingFragment StoreEntitySet="MenuItemCategory">
+                <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuItemShifts">
+            <EntityTypeMapping TypeName="CGModel.MenuItemShift">
+              <MappingFragment StoreEntitySet="MenuItemShift">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ShiftId" ColumnName="ShiftId" />
+                <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="CGModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
+                <ScalarProperty Name="OrderStatusId" ColumnName="OrderStatusId" />
+                <ScalarProperty Name="OrderTypeId" ColumnName="OrderTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="CGModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItem">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="CGModel.OrderStatu">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderTypes">
+            <EntityTypeMapping TypeName="CGModel.OrderType">
+              <MappingFragment StoreEntitySet="OrderType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderTypeTaxes">
+            <EntityTypeMapping TypeName="CGModel.OrderTypeTax">
+              <MappingFragment StoreEntitySet="OrderTypeTax">
+                <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+                <ScalarProperty Name="OrderTypeId" ColumnName="OrderTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentTypes">
+            <EntityTypeMapping TypeName="CGModel.PaymentType">
+              <MappingFragment StoreEntitySet="PaymentType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="CGModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restaurants">
+            <EntityTypeMapping TypeName="CGModel.Restaurant">
+              <MappingFragment StoreEntitySet="Restaurant">
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="LandLineNumber" ColumnName="LandLineNumber" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shifts">
+            <EntityTypeMapping TypeName="CGModel.Shift">
+              <MappingFragment StoreEntitySet="Shift">
+                <ScalarProperty Name="ShiftTypeId" ColumnName="ShiftTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShiftTypes">
+            <EntityTypeMapping TypeName="CGModel.ShiftType">
+              <MappingFragment StoreEntitySet="ShiftType">
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="CGModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="MaxSeats" ColumnName="MaxSeats" />
+                <ScalarProperty Name="Seats" ColumnName="Seats" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableMeals">
+            <EntityTypeMapping TypeName="CGModel.TableMeal">
+              <MappingFragment StoreEntitySet="TableMeal">
+                <ScalarProperty Name="NumberOfPeople" ColumnName="NumberOfPeople" />
+                <ScalarProperty Name="EndedTime" ColumnName="EndedTime" />
+                <ScalarProperty Name="StartedTime" ColumnName="StartedTime" />
+                <ScalarProperty Name="TableStatusId" ColumnName="TableStatusId" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableMealOrders">
+            <EntityTypeMapping TypeName="CGModel.TableMealOrder">
+              <MappingFragment StoreEntitySet="TableMealOrder">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="TableMealId" ColumnName="TableMealId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableStatus">
+            <EntityTypeMapping TypeName="CGModel.TableStatu">
+              <MappingFragment StoreEntitySet="TableStatus">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Taxes">
+            <EntityTypeMapping TypeName="CGModel.Tax">
+              <MappingFragment StoreEntitySet="Tax">
+                <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terminals">
+            <EntityTypeMapping TypeName="CGModel.Terminal">
+              <MappingFragment StoreEntitySet="Terminal">
+                <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="CGModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="AggregateAmountWithoutTax" ColumnName="AggregateAmountWithoutTax" />
+                <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+                <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+                <ScalarProperty Name="TableMealId" ColumnName="TableMealId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CGModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="CGModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

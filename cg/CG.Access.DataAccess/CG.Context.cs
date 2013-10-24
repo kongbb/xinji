@@ -26,5 +26,29 @@ namespace CG.Access.DataAccess
         }
     
         public DbSet<TestTable> TestTables { get; set; }
+        public DbSet<C__RefactorLog> C__RefactorLog { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<MenuItem> MenuItems { get; set; }
+        public DbSet<MenuItemCategory> MenuItemCategories { get; set; }
+        public DbSet<MenuItemShift> MenuItemShifts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<OrderStatu> OrderStatus { get; set; }
+        public DbSet<OrderType> OrderTypes { get; set; }
+        public DbSet<OrderTypeTax> OrderTypeTaxes { get; set; }
+        public DbSet<PaymentType> PaymentTypes { get; set; }
+        public DbSet<Province> Provinces { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Shift> Shifts { get; set; }
+        public DbSet<ShiftType> ShiftTypes { get; set; }
+        public DbSet<Table> Tables { get; set; }
+        public DbSet<TableMeal> TableMeals { get; set; }
+        public DbSet<TableMealOrder> TableMealOrders { get; set; }
+        public DbSet<TableStatu> TableStatus { get; set; }
+        public DbSet<Tax> Taxes { get; set; }
+        public DbSet<Terminal> Terminals { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
     }
 }

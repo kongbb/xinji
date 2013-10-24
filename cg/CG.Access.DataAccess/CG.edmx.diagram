@@ -4,8 +4,61 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f7928304fa924081bc86b7ccf80c8a2b" Name="Diagram1">
+      <Diagram DiagramId="f7928304fa924081bc86b7ccf80c8a2b" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="CGModel.TestTable" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CGModel.C__RefactorLog" Width="1.5" PointX="4.0201204493735547" PointY="29.674533708800809" />
+        <EntityTypeShape EntityType="CGModel.Country" Width="1.5" PointX="9.1575511010166029" PointY="16.69156024637239" />
+        <EntityTypeShape EntityType="CGModel.MenuItem" Width="1.5" PointX="3.1892974894443986" PointY="20.274644175672272" />
+        <EntityTypeShape EntityType="CGModel.MenuItemCategory" Width="1.5" PointX="9.1157314838449146" PointY="28.520876406003197" />
+        <EntityTypeShape EntityType="CGModel.MenuItemShift" Width="1.5" PointX="3.2731653653425932" PointY="17.772120782068054" />
+        <EntityTypeShape EntityType="CGModel.Order" Width="1.5" PointX="1.70837137555162" PointY="25.135302436135383" />
+        <EntityTypeShape EntityType="CGModel.OrderItem" Width="1.5" PointX="3.7181707023261912" PointY="24.537297528487304" />
+        <EntityTypeShape EntityType="CGModel.OrderStatu" Width="1.5" PointX="9.7308504012091319" PointY="29.024433551833237" />
+        <EntityTypeShape EntityType="CGModel.OrderType" Width="1.5" PointX="6.2380811843267079" PointY="16.372485347265602" />
+        <EntityTypeShape EntityType="CGModel.OrderTypeTax" Width="1.5" PointX="1.3940706371302114" PointY="26.059260857319114" />
+        <EntityTypeShape EntityType="CGModel.PaymentType" Width="1.5" PointX="7.4700069331890013" PointY="18.470068016308392" />
+        <EntityTypeShape EntityType="CGModel.Province" Width="1.5" PointX="7.0364670059813488" PointY="27.043909726219209" />
+        <EntityTypeShape EntityType="CGModel.Restaurant" Width="1.5" PointX="5.650378036149954" PointY="30.77392834367879" />
+        <EntityTypeShape EntityType="CGModel.Shift" Width="1.5" PointX="4.8160723451599816" PointY="13.859614736335173" />
+        <EntityTypeShape EntityType="CGModel.ShiftType" Width="1.5" PointX="6.0095569985031876" PointY="22.74170755908904" />
+        <EntityTypeShape EntityType="CGModel.Table" Width="1.5" PointX="5.206710903535928" PointY="29.481227188129548" />
+        <EntityTypeShape EntityType="CGModel.TableMeal" Width="1.5" PointX="6.8457754621495379" PointY="16.955505453495078" />
+        <EntityTypeShape EntityType="CGModel.TableMealOrder" Width="1.5" PointX="6.6497142811537326" PointY="31.746529966474757" />
+        <EntityTypeShape EntityType="CGModel.TableStatu" Width="1.5" PointX="8.917246703485608" PointY="10.89888524026558" />
+        <EntityTypeShape EntityType="CGModel.Tax" Width="1.5" PointX="3.2386142719716826" PointY="4.82106845305351" />
+        <EntityTypeShape EntityType="CGModel.Terminal" Width="1.5" PointX="1.2563468037435537" PointY="13.280185616239992" />
+        <EntityTypeShape EntityType="CGModel.Transaction" Width="1.5" PointX="0.96328008592281489" PointY="4.4277589192743223" />
+        <EntityTypeShape EntityType="CGModel.User" Width="1.5" PointX="2.4341689434061613" PointY="24.470238339374884" />
+        <EntityTypeShape EntityType="CGModel.UserType" Width="1.5" PointX="1.706860191052249" PointY="10.601562087704224" />
+        <AssociationConnector Association="CGModel.FK_Province_Country" />
+        <AssociationConnector Association="CGModel.FK_MenuItem_MenuItemCategory" />
+        <AssociationConnector Association="CGModel.FK_MenuItem_UpdatedBy" />
+        <AssociationConnector Association="CGModel.FK_MenuItemShift_MenuItem" />
+        <AssociationConnector Association="CGModel.FK_OrderItem_MenuItem" />
+        <AssociationConnector Association="CGModel.FK_MenuItemCategory_Restaurant" />
+        <AssociationConnector Association="CGModel.FK_MenuItemShift_Shift" />
+        <AssociationConnector Association="CGModel.FK_Order_CreatedByUser" />
+        <AssociationConnector Association="CGModel.FK_Order_OrderStatus" />
+        <AssociationConnector Association="CGModel.FK_Order_OrderType" />
+        <AssociationConnector Association="CGModel.FK_Order_Restaurant" />
+        <AssociationConnector Association="CGModel.FK_Order_UpdatedByUser" />
+        <AssociationConnector Association="CGModel.FK_OrderItem_Order" />
+        <AssociationConnector Association="CGModel.FK_TableOrder_Order" />
+        <AssociationConnector Association="CGModel.FK_OrderTypeTax_OrderTypeId" />
+        <AssociationConnector Association="CGModel.FK_OrderTypeTax_Tax" />
+        <AssociationConnector Association="CGModel.FK_Transaction_PaymentType" />
+        <AssociationConnector Association="CGModel.FK_Restaurant_Province" />
+        <AssociationConnector Association="CGModel.FK_ShiftType_Restaurant" />
+        <AssociationConnector Association="CGModel.FK_Tax_Restaurant" />
+        <AssociationConnector Association="CGModel.FK_Terminal_Restaurant" />
+        <AssociationConnector Association="CGModel.FK_User_Restaurant" />
+        <AssociationConnector Association="CGModel.FK_Shift_ShiftType" />
+        <AssociationConnector Association="CGModel.FK_TableMeal_Table" />
+        <AssociationConnector Association="CGModel.FK_TableMeal_TableStatus" />
+        <AssociationConnector Association="CGModel.FK_TableOrder_TableMeal" />
+        <AssociationConnector Association="CGModel.FK_Transaction_TableMeal" />
+        <AssociationConnector Association="CGModel.FK_Transaction_User" />
+        <AssociationConnector Association="CGModel.FK_User_UserType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

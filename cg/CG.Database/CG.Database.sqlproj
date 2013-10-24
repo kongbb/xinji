@@ -91,4 +91,7 @@
   <ItemGroup>
     <RefactorLog Include="CG.Database.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\Script.PostDeployment.sql" />
+  </ItemGroup>
 </Project>
