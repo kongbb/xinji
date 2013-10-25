@@ -113,7 +113,7 @@
     <Compile Include="OrderItem.cs">
       <DependentUpon>CG.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderStatu.cs">
+    <Compile Include="OrderStatus.cs">
       <DependentUpon>CG.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderType.cs">
@@ -151,7 +151,7 @@
     <Compile Include="TableMealOrder.cs">
       <DependentUpon>CG.tt</DependentUpon>
     </Compile>
-    <Compile Include="TableStatu.cs">
+    <Compile Include="TableStatus.cs">
       <DependentUpon>CG.tt</DependentUpon>
     </Compile>
     <Compile Include="Tax.cs">

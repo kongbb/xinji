@@ -7,7 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Controllers;
 using CG.Access.DataAccess.RepositoryInterface;
 using CG.Common.Helpers;
-using CG.Logic.Domain.User;
+using Domain = CG.Logic.Domain;
 using Microsoft.Practices.Unity;
 
 namespace CG.Presentation.WebApi.Authentication
@@ -145,7 +145,7 @@ namespace CG.Presentation.WebApi.Authentication
             // this is the method that authenticates against my repository (in this case, hard coded)
             // you can replace this with whatever logic you'd use, but proper separation would put the
             // data access in a repository or separate layer/library.
-            User user = UserRepository.Authenticate(userName, password);
+            Domain.User user = UserRepository.Authenticate(userName, password);
 
             if (user != null)
             {

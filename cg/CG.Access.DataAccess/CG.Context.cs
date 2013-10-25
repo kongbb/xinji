@@ -33,7 +33,7 @@ namespace CG.Access.DataAccess
         public DbSet<MenuItemShift> MenuItemShifts { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<OrderStatu> OrderStatus { get; set; }
+        public DbSet<OrderStatus> OrderStatus { get; set; }
         public DbSet<OrderType> OrderTypes { get; set; }
         public DbSet<OrderTypeTax> OrderTypeTaxes { get; set; }
         public DbSet<PaymentType> PaymentTypes { get; set; }
@@ -44,7 +44,7 @@ namespace CG.Access.DataAccess
         public DbSet<Table> Tables { get; set; }
         public DbSet<TableMeal> TableMeals { get; set; }
         public DbSet<TableMealOrder> TableMealOrders { get; set; }
-        public DbSet<TableStatu> TableStatus { get; set; }
+        public DbSet<TableStatus> TableStatus1 { get; set; }
         public DbSet<Tax> Taxes { get; set; }
         public DbSet<Terminal> Terminals { get; set; }
         public DbSet<Transaction> Transactions { get; set; }

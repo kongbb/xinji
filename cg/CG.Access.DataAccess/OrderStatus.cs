@@ -12,16 +12,16 @@ namespace CG.Access.DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class TableStatu
+    public partial class OrderStatus
     {
-        public TableStatu()
+        public OrderStatus()
         {
-            this.TableMeals = new HashSet<TableMeal>();
+            this.Orders = new HashSet<Order>();
         }
     
         public long Id { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<TableMeal> TableMeals { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

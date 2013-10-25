@@ -94,4 +94,7 @@
   <ItemGroup>
     <PostDeploy Include="dbo\Script.PostDeployment.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="CG.Database.roger-home.xml" />
+  </ItemGroup>
 </Project>

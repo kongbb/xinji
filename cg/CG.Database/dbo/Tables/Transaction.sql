@@ -14,5 +14,6 @@
     [UpdatedBy] BIGINT NOT NULL, 
     CONSTRAINT [FK_Transaction_TableMeal] FOREIGN KEY ([TableMealId]) REFERENCES [TableMeal]([Id]), 
 	CONSTRAINT [FK_Transaction_PaymentType] FOREIGN KEY ([PaymentTypeId]) REFERENCES [PaymentType]([Id]), 
-    CONSTRAINT [FK_Transaction_User] FOREIGN KEY ([UpdatedBy]) REFERENCES [User]([Id])
+    CONSTRAINT [FK_Transaction_User] FOREIGN KEY ([UpdatedBy]) REFERENCES [User]([Id]), 
+    CONSTRAINT [FK_Transaction_Terminal] FOREIGN KEY ([TerminalId]) REFERENCES [Terminal]([Id])
 )

@@ -30,5 +30,6 @@ namespace CG.Access.DataAccess
         public virtual PaymentType PaymentType { get; set; }
         public virtual TableMeal TableMeal { get; set; }
         public virtual User User { get; set; }
+        public virtual Terminal Terminal { get; set; }
     }
 }

@@ -14,10 +14,16 @@ namespace CG.Access.DataAccess
     
     public partial class Terminal
     {
+        public Terminal()
+        {
+            this.Transactions = new HashSet<Transaction>();
+        }
+    
         public long Id { get; set; }
         public string Name { get; set; }
         public long RestaurantId { get; set; }
     
         public virtual Restaurant Restaurant { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

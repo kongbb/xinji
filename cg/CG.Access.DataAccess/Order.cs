@@ -31,7 +31,7 @@ namespace CG.Access.DataAccess
         public Nullable<long> RestaurantId { get; set; }
     
         public virtual User User { get; set; }
-        public virtual OrderStatu OrderStatu { get; set; }
+        public virtual OrderStatus OrderStatu { get; set; }
         public virtual OrderType OrderType { get; set; }
         public virtual Restaurant Restaurant { get; set; }
         public virtual User User1 { get; set; }

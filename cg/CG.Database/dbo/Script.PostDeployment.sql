@@ -11,12 +11,12 @@ Post-Deployment Script Template
 */
 
 -- Restaurant
-insert into Restaurant values(1, '蜀香村', '海淀大街3号，海淀区', '北京',null, '100021', null, '', null, null, null, null)
+insert into Restaurant values(1, '蜀香村', '海淀大街3号，海淀区', '北京',null, '100021', null, '', null, null, null)
 
 -- UserType
 insert into UserType values (1, 'Admin')
-insert into UserType values (1, 'Waiter')
+insert into UserType values (2, 'Waiter')
 
 -- User
 insert into [User] values (1, 'Admin', null, null, 'password', 1, 1)
-insert into [User] values (1, 'Waiter', null, null, 'password', 1, 2)
+insert into [User] values (2, 'Waiter', null, null, 'password', 1, 2)

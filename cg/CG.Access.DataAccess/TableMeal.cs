@@ -28,7 +28,7 @@ namespace CG.Access.DataAccess
         public Nullable<int> NumberOfPeople { get; set; }
     
         public virtual Table Table { get; set; }
-        public virtual TableStatu TableStatu { get; set; }
+        public virtual TableStatus TableStatu { get; set; }
         public virtual ICollection<TableMealOrder> TableMealOrders { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }

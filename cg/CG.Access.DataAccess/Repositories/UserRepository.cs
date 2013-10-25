@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CG.Access.DataAccess.RepositoryInterface;
-using CG.Logic.Domain.User;
+using Domain = CG.Logic.Domain;
 
 namespace CG.Access.DataAccess.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public User Authenticate(string userName, string password)
+        public Domain.User Authenticate(string userName, string password)
         {
-            return new User
+            return new Domain.User
             {
-                UserName = userName,
-                Roles = new List<string>()
+                //Name = userName,
+                //Roles = new List<string>()
             };
         }
     }

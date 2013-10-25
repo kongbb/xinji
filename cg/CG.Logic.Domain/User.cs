@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CG.Logic.Domain.User
+namespace CG.Logic.Domain
 {
     public class User
     {

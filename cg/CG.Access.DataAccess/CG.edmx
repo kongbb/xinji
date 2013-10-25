@@ -135,6 +135,10 @@
             <End Role="TableMeal" EntitySet="TableMeal" />
             <End Role="Transaction" EntitySet="Transaction" />
           </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Terminal" Association="CGModel.Store.FK_Transaction_Terminal">
+            <End Role="Terminal" EntitySet="Terminal" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
           <AssociationSet Name="FK_Transaction_User" Association="CGModel.Store.FK_Transaction_User">
             <End Role="User" EntitySet="User" />
             <End Role="Transaction" EntitySet="Transaction" />
@@ -380,7 +384,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <Association Name="FK_MenuItem_MenuItemCategory">
           <End Role="MenuItemCategory" Type="CGModel.Store.MenuItemCategory" Multiplicity="1" />
@@ -694,6 +698,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Transaction_Terminal">
+          <End Role="Terminal" Type="CGModel.Store.Terminal" Multiplicity="0..1" />
+          <End Role="Transaction" Type="CGModel.Store.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TerminalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Transaction_User">
           <End Role="User" Type="CGModel.Store.User" Multiplicity="1" />
           <End Role="Transaction" Type="CGModel.Store.Transaction" Multiplicity="*" />
@@ -743,7 +759,7 @@
           <EntitySet Name="MenuItemShifts" EntityType="CGModel.MenuItemShift" />
           <EntitySet Name="Orders" EntityType="CGModel.Order" />
           <EntitySet Name="OrderItems" EntityType="CGModel.OrderItem" />
-          <EntitySet Name="OrderStatus" EntityType="CGModel.OrderStatu" />
+          <EntitySet Name="OrderStatus" EntityType="CGModel.OrderStatus" />
           <EntitySet Name="OrderTypes" EntityType="CGModel.OrderType" />
           <EntitySet Name="OrderTypeTaxes" EntityType="CGModel.OrderTypeTax" />
           <EntitySet Name="PaymentTypes" EntityType="CGModel.PaymentType" />
@@ -754,7 +770,7 @@
           <EntitySet Name="Tables" EntityType="CGModel.Table" />
           <EntitySet Name="TableMeals" EntityType="CGModel.TableMeal" />
           <EntitySet Name="TableMealOrders" EntityType="CGModel.TableMealOrder" />
-          <EntitySet Name="TableStatus" EntityType="CGModel.TableStatu" />
+          <EntitySet Name="TableStatus1" EntityType="CGModel.TableStatus" />
           <EntitySet Name="Taxes" EntityType="CGModel.Tax" />
           <EntitySet Name="Terminals" EntityType="CGModel.Terminal" />
           <EntitySet Name="Transactions" EntityType="CGModel.Transaction" />
@@ -857,7 +873,7 @@
             <End Role="TableMeal" EntitySet="TableMeals" />
           </AssociationSet>
           <AssociationSet Name="FK_TableMeal_TableStatus" Association="CGModel.FK_TableMeal_TableStatus">
-            <End Role="TableStatu" EntitySet="TableStatus" />
+            <End Role="TableStatu" EntitySet="TableStatus1" />
             <End Role="TableMeal" EntitySet="TableMeals" />
           </AssociationSet>
           <AssociationSet Name="FK_TableOrder_TableMeal" Association="CGModel.FK_TableOrder_TableMeal">
@@ -875,6 +891,10 @@
           <AssociationSet Name="FK_User_UserType" Association="CGModel.FK_User_UserType">
             <End Role="UserType" EntitySet="UserTypes" />
             <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Terminal" Association="CGModel.FK_Transaction_Terminal">
+            <End Role="Terminal" EntitySet="Terminals" />
+            <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="TestTable">
@@ -969,7 +989,7 @@
           <NavigationProperty Name="MenuItem" Relationship="CGModel.FK_OrderItem_MenuItem" FromRole="OrderItem" ToRole="MenuItem" />
           <NavigationProperty Name="Order" Relationship="CGModel.FK_OrderItem_Order" FromRole="OrderItem" ToRole="Order" />
         </EntityType>
-        <EntityType Name="OrderStatu">
+        <EntityType Name="OrderStatus">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1095,7 +1115,7 @@
           <NavigationProperty Name="Order" Relationship="CGModel.FK_TableOrder_Order" FromRole="TableMealOrder" ToRole="Order" />
           <NavigationProperty Name="TableMeal" Relationship="CGModel.FK_TableOrder_TableMeal" FromRole="TableMealOrder" ToRole="TableMeal" />
         </EntityType>
-        <EntityType Name="TableStatu">
+        <EntityType Name="TableStatus">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1122,6 +1142,7 @@
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int64" Name="RestaurantId" Nullable="false" />
           <NavigationProperty Name="Restaurant" Relationship="CGModel.FK_Terminal_Restaurant" FromRole="Terminal" ToRole="Restaurant" />
+          <NavigationProperty Name="Transactions" Relationship="CGModel.FK_Transaction_Terminal" FromRole="Terminal" ToRole="Transaction" />
         </EntityType>
         <EntityType Name="Transaction">
           <Key>
@@ -1142,6 +1163,7 @@
           <NavigationProperty Name="PaymentType" Relationship="CGModel.FK_Transaction_PaymentType" FromRole="Transaction" ToRole="PaymentType" />
           <NavigationProperty Name="TableMeal" Relationship="CGModel.FK_Transaction_TableMeal" FromRole="Transaction" ToRole="TableMeal" />
           <NavigationProperty Name="User" Relationship="CGModel.FK_Transaction_User" FromRole="Transaction" ToRole="User" />
+          <NavigationProperty Name="Terminal" Relationship="CGModel.FK_Transaction_Terminal" FromRole="Transaction" ToRole="Terminal" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -1166,8 +1188,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int64" Name="Id" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Users" Relationship="CGModel.FK_User_UserType" FromRole="UserType" ToRole="User" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Province_Country">
           <End Type="CGModel.Country" Role="Country" Multiplicity="1" />
@@ -1266,7 +1288,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_OrderStatus">
-          <End Type="CGModel.OrderStatu" Role="OrderStatu" Multiplicity="1" />
+          <End Type="CGModel.OrderStatus" Role="OrderStatu" Multiplicity="1" />
           <End Type="CGModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrderStatu">
@@ -1458,7 +1480,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TableMeal_TableStatus">
-          <End Type="CGModel.TableStatu" Role="TableStatu" Multiplicity="1" />
+          <End Type="CGModel.TableStatus" Role="TableStatu" Multiplicity="1" />
           <End Type="CGModel.TableMeal" Role="TableMeal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TableStatu">
@@ -1514,6 +1536,18 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Terminal">
+          <End Type="CGModel.Terminal" Role="Terminal" Multiplicity="0..1" />
+          <End Type="CGModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TerminalId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1606,7 +1640,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderStatus">
-            <EntityTypeMapping TypeName="CGModel.OrderStatu">
+            <EntityTypeMapping TypeName="CGModel.OrderStatus">
               <MappingFragment StoreEntitySet="OrderStatus">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -1716,8 +1750,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TableStatus">
-            <EntityTypeMapping TypeName="CGModel.TableStatu">
+          <EntitySetMapping Name="TableStatus1">
+            <EntityTypeMapping TypeName="CGModel.TableStatus">
               <MappingFragment StoreEntitySet="TableStatus">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -1777,7 +1811,7 @@
           <EntitySetMapping Name="UserTypes">
             <EntityTypeMapping TypeName="CGModel.UserType">
               <MappingFragment StoreEntitySet="UserType">
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
