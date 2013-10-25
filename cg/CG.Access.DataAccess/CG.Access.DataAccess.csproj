@@ -92,12 +92,84 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CG.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__RefactorLog.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItem.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItemCategory.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItemShift.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderItem.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatu.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderType.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderTypeTax.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentType.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Province.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\TestRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="RepositoryInterface\ITestRepository.cs" />
     <Compile Include="RepositoryInterface\IUserRepository.cs" />
+    <Compile Include="Restaurant.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shift.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftType.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableMeal.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableMealOrder.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableStatu.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tax.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Terminal.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
     <Compile Include="TestTable.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>CG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserType.cs">
       <DependentUpon>CG.tt</DependentUpon>
     </Compile>
   </ItemGroup>
