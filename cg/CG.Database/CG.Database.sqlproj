@@ -92,9 +92,9 @@
     <RefactorLog Include="CG.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="dbo\Script.PostDeployment.sql" />
+    <None Include="CG.Database.roger-home.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CG.Database.roger-home.xml" />
+    <PostDeploy Include="dbo\Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>
