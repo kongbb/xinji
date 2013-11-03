@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using CG.Access.DataAccess;
 using CG.Access.DataAccess.RepositoryInterface;
 using CG.Common.Helpers;
 using Domain = CG.Logic.Domain;
@@ -145,12 +146,12 @@ namespace CG.Presentation.WebApi.Authentication
             // this is the method that authenticates against my repository (in this case, hard coded)
             // you can replace this with whatever logic you'd use, but proper separation would put the
             // data access in a repository or separate layer/library.
-            Domain.User user = UserRepository.Authenticate(userName, password);
+            User user = UserRepository.Authenticate(userName, password);
 
             if (user != null)
             {
                 // once the user is verified, assign it to an IPrincipal with the identity name and applicable roles
-                principal = new GenericPrincipal(new GenericIdentity(user.UserName), user.Roles.ToArray());
+                principal = new GenericPrincipal(new GenericIdentity(user.LoginName), null);
                 return true;
             }
             else

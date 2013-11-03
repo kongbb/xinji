@@ -42,16 +42,22 @@ namespace CG.Presentation.WebApi
             container.RegisterType<IConfig, AppConfig>(new ContainerControlledLifetimeManager());
 
             // DBContext
-            container.RegisterType<CGEntities>();
+            container.RegisterType<Entities>();
 
             // UserRepository
             container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IRestaurantRepository, RestaurantRepository>();
 
             // controller, service, repository
             container
                 .RegisterType<TestApiController>()
                 .RegisterType<ITestService, TestService>()
                 .RegisterType<ITestRepository, TestRepository>(new ContainerControlledLifetimeManager());
+
+            container
+                .RegisterType<RestaurantApiController>()
+                .RegisterType<IRestaurantService, RestaurantService>()
+                .RegisterType<IRestaurantRepository, RestaurantRepository>(new ContainerControlledLifetimeManager());
             
             // message bus
             container

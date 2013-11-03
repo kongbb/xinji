@@ -8,11 +8,8 @@ using Microsoft.Practices.Unity;
 
 namespace CG.Access.DataAccess.Repositories
 {
-    public class TestRepository : ITestRepository
+    public class TestRepository : BaseRepository, ITestRepository
     {
-        [Dependency]
-        protected CGEntities Context { get; set; }
-
         public TestTable GetTestMessageById(long messageId)
         {
             return Context.TestTables.SingleOrDefault(x => x.Id == messageId);

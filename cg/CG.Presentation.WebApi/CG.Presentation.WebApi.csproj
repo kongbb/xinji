@@ -43,6 +43,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\EasyNetQ\EasyNetQ.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Entity Framework 6\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Entity Framework 6\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -70,9 +78,6 @@
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -140,6 +145,7 @@
     <Compile Include="Authentication\AuthenticationAttribute.cs" />
     <Compile Include="Authentication\HttpCustomBasicUnauthorizedResult.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\RestaurantApiController.cs" />
     <Compile Include="Controllers\TestApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

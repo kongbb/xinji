@@ -7,7 +7,7 @@ using Microsoft.Practices.Unity;
 
 namespace CG.Presentation.WebApi.Controllers
 {
-    [Authentication]
+    //[Authentication]
     public class TestApiController : ApiController
     {
         [Dependency]

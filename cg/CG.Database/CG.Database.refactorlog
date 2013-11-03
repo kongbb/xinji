@@ -105,4 +105,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Description" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="e064479b-a80b-44ff-9ff0-6662f8a2692b" ChangeDateTime="11/03/2013 09:30:10">
+    <Property Name="ElementName" Value="[dbo].[TableMeal].[UpdatedByUser]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TableMeal]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UpdatedBy" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="69f66800-43cb-4c46-9ebb-feef79921c40" ChangeDateTime="11/03/2013 09:42:47">
+    <Property Name="ElementName" Value="[dbo].[FK_TableMeal_TableStatus]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[TableMeal]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_TableMeal_TableMealStatus]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="de742a4f-8e0e-4de7-bd21-f8c018bfca31" ChangeDateTime="11/03/2013 09:43:08">
+    <Property Name="ElementName" Value="[dbo].[TableMeal].[TableStatusId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TableMeal]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TableMealStatusId" />
+  </Operation>
 </Operations>

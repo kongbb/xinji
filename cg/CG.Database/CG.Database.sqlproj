@@ -87,6 +87,7 @@
     <Build Include="dbo\Tables\Table.sql" />
     <Build Include="dbo\Tables\TableStatus.sql" />
     <Build Include="dbo\Tables\TableMeal.sql" />
+    <Build Include="dbo\Tables\TableMealStatus.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="CG.Database.refactorlog" />

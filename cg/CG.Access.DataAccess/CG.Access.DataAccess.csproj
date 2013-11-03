@@ -57,8 +57,13 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Entity Framework 6\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Entity Framework 6\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -67,7 +72,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -77,122 +81,125 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CG.Context.cs">
+    <Compile Include="cg.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CG.Context.tt</DependentUpon>
+      <DependentUpon>cg.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CG.cs">
+    <Compile Include="cg.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
-    <Compile Include="CG.Designer.cs">
+    <Compile Include="cg.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CG.edmx</DependentUpon>
+      <DependentUpon>cg.edmx</DependentUpon>
     </Compile>
     <Compile Include="Country.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
-    <Compile Include="C__RefactorLog.cs">
-      <DependentUpon>CG.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Domain\Restaurant\Table.cs" />
+    <Compile Include="Domain\User\User.cs" />
     <Compile Include="MenuItem.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="MenuItemCategory.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="MenuItemShift.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderItem.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderStatus.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+    <Compile Include="OrderStatu.cs">
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderType.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderTypeTax.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="PaymentType.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Province.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\RestaurantRepository.cs" />
     <Compile Include="Repositories\TestRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="RepositoryInterface\IRestaurantRepository.cs" />
     <Compile Include="RepositoryInterface\ITestRepository.cs" />
     <Compile Include="RepositoryInterface\IUserRepository.cs" />
     <Compile Include="Restaurant.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="Shift.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="ShiftType.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="Table.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="TableMeal.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="TableMealOrder.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
-    <Compile Include="TableStatus.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+    <Compile Include="TableMealStatu.cs">
+      <DependentUpon>cg.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableStatu.cs">
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="Tax.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="Terminal.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="TestTable.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="Transaction.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="UserType.cs">
-      <DependentUpon>CG.tt</DependentUpon>
+      <DependentUpon>cg.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="CG.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CG.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="CG.Context.tt">
+    <EntityDeploy Include="cg.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>cg.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="cg.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CG.edmx</DependentUpon>
-      <LastGenOutput>CG.Context.cs</LastGenOutput>
+      <DependentUpon>cg.edmx</DependentUpon>
+      <LastGenOutput>cg.Context.cs</LastGenOutput>
     </None>
-    <None Include="CG.edmx.diagram">
-      <DependentUpon>CG.edmx</DependentUpon>
+    <None Include="cg.edmx.diagram">
+      <DependentUpon>cg.edmx</DependentUpon>
     </None>
-    <None Include="CG.tt">
+    <None Include="cg.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CG.edmx</DependentUpon>
-      <LastGenOutput>CG.cs</LastGenOutput>
+      <DependentUpon>cg.edmx</DependentUpon>
+      <LastGenOutput>cg.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -200,9 +207,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CG.Logic.Domain\CG.Logic.Domain.csproj">
-      <Project>{A2F7A307-8BC0-49F5-9754-4212D870CD24}</Project>
-      <Name>CG.Logic.Domain</Name>
+    <ProjectReference Include="..\CG.Common\CG.Common.csproj">
+      <Project>{f5ff810f-7ccb-4edd-b406-9cbfd8468c74}</Project>
+      <Name>CG.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
