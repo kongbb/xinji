@@ -186,7 +186,7 @@ INSERT INTO [dbo].[Order] values (2,1,3,2,'2013-10-31 19:00',2,'2013-10-31 19:20
 INSERT INTO [dbo].[TableMealOrder] values (2,2,2)
 INSERT INTO [dbo].[OrderItem] values (5,2,1,1)
 INSERT INTO [dbo].[OrderItem] values (6,2,2,1)
---19：30第二轮点菜 服务员2 已打印至厨房 正在等待
+--19：30第二轮点菜 服务员2 已打印至厨房 正在等待 test test
 INSERT INTO [dbo].[Order] values (3,1,2,2,'2013-10-31 19:30',2,'',2,1)
 INSERT INTO [dbo].[TableMealOrder] values (3,2,3)
 INSERT INTO [dbo].[OrderItem] values (7,3,10,1)
