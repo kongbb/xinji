@@ -16,8 +16,8 @@ namespace CG.Access.DataAccess
     {
         public TableMeal()
         {
-            this.TableMealOrders = new HashSet<TableMealOrder>();
             this.Transactions = new HashSet<Transaction>();
+            this.Orders = new HashSet<Order>();
         }
     
         public long Id { get; set; }
@@ -32,7 +32,7 @@ namespace CG.Access.DataAccess
         public virtual Table Table { get; set; }
         public virtual TableMealStatu TableMealStatu { get; set; }
         public virtual User User { get; set; }
-        public virtual ICollection<TableMealOrder> TableMealOrders { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

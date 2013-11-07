@@ -16,12 +16,18 @@ namespace CG.Access.DataAccess.Repositories
 
             foreach (var table in availableTables)
             {
-                if (table.TableStatusId != TableStatuses.Spare && table.TableStatusId != TableStatuses.NeedClean)
+                table.CurrentTableMeal = table.GetCurrentTableMeal();
+                if (table.CurrentTableMeal != null)
                 {
-                    table.TableMeal =
-                        Context.TableMeals.Where(tm => tm.TableId == table.Id)
-                               .OrderByDescending(tm => tm.UpdatedDateTime)
-                               .First();
+                    table.CurrentTableMeal.TotalOrderItems =
+                        table.CurrentTableMeal.GetTableMealOrderItems()
+                             .GroupBy(oi => oi.MenuItemId)
+                             .Select(m => new OrderItem
+                             {
+                                 MenuItemId = m.Key,
+                                 Count = m.Sum(x => x.Count),
+                                 ServedCount = m.Sum(x => x.Count),
+                             }).ToList();
                 }
             }
 

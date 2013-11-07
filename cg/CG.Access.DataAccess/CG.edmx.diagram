@@ -21,7 +21,6 @@
         <EntityTypeShape EntityType="CGModel.ShiftType" Width="1.5" PointX="7.5" PointY="16.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CGModel.Table" Width="1.5" PointX="12.5" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CGModel.TableMeal" Width="1.5" PointX="14.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="CGModel.TableMealOrder" Width="1.5" PointX="17" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CGModel.TableMealStatu" Width="1.5" PointX="12.5" PointY="17.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CGModel.TableStatu" Width="1.5" PointX="10.25" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CGModel.Tax" Width="1.5" PointX="7.5" PointY="20" IsExpanded="true" />
@@ -40,10 +39,8 @@
         <AssociationConnector Association="CGModel.FK_Order_CreatedByUser" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_Order_OrderStatus" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_Order_OrderType" ManuallyRouted="false" />
-        <AssociationConnector Association="CGModel.FK_Order_Restaurant" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_Order_UpdatedByUser" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_OrderItem_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="CGModel.FK_TableOrder_Order" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_OrderTypeTax_OrderTypeId" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_OrderTypeTax_Tax" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_Transaction_PaymentType" ManuallyRouted="false" />
@@ -57,12 +54,12 @@
         <AssociationConnector Association="CGModel.FK_TableMeal_Table" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_TableMeal_TableMealStatus" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_TableMeal_User" ManuallyRouted="false" />
-        <AssociationConnector Association="CGModel.FK_TableOrder_TableMeal" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_Transaction_TableMeal" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_Transaction_Terminal" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_Transaction_User" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_User_UserType" ManuallyRouted="false" />
         <AssociationConnector Association="CGModel.FK_Table_Restaurant" />
+        <AssociationConnector Association="CGModel.FK_Order_TableMeal" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

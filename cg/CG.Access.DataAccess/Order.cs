@@ -17,25 +17,22 @@ namespace CG.Access.DataAccess
         public Order()
         {
             this.OrderItems = new HashSet<OrderItem>();
-            this.TableMealOrders = new HashSet<TableMealOrder>();
         }
     
         public long Id { get; set; }
         public long OrderTypeId { get; set; }
         public long OrderStatusId { get; set; }
-        public Nullable<int> TableNumber { get; set; }
         public System.DateTime CreatedDateTime { get; set; }
         public long CreatedBy { get; set; }
         public System.DateTime UpdatedDateTime { get; set; }
         public long UpdatedBy { get; set; }
-        public Nullable<long> RestaurantId { get; set; }
+        public long TableMealId { get; set; }
     
         public virtual User User { get; set; }
         public virtual OrderStatu OrderStatu { get; set; }
         public virtual OrderType OrderType { get; set; }
-        public virtual Restaurant Restaurant { get; set; }
         public virtual User User1 { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
-        public virtual ICollection<TableMealOrder> TableMealOrders { get; set; }
+        public virtual TableMeal TableMeal { get; set; }
     }
 }

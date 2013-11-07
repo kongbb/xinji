@@ -17,7 +17,6 @@ namespace CG.Access.DataAccess
         public Restaurant()
         {
             this.MenuItemCategories = new HashSet<MenuItemCategory>();
-            this.Orders = new HashSet<Order>();
             this.ShiftTypes = new HashSet<ShiftType>();
             this.Taxes = new HashSet<Tax>();
             this.Terminals = new HashSet<Terminal>();
@@ -38,7 +37,6 @@ namespace CG.Access.DataAccess
         public string Mobile { get; set; }
     
         public virtual ICollection<MenuItemCategory> MenuItemCategories { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
         public virtual Province Province { get; set; }
         public virtual ICollection<ShiftType> ShiftTypes { get; set; }
         public virtual ICollection<Tax> Taxes { get; set; }

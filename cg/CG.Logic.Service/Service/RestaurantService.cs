@@ -23,24 +23,7 @@ namespace CG.Logic.Service.Service
             {
                 var tables = RestaurantRepository.GetTablesByRestaurantId(restaurantId);
                 var query = from table in tables
-                            select new TableSummaryDto
-                                {
-                                    TableId = table.Id,
-                                    TableMeal = table.TableMeal == null ? null : new TableMealSummaryDto
-                                        {
-                                            TableMealId = table.TableMeal.Id,
-                                            TableMealStatusId = table.TableMeal.TableMealStatusId,
-                                            TableMealStatus = table.TableMeal.TableMealStatu.Name,
-                                            NumberOfGuests = table.TableMeal.NumberOfPeople,
-                                            StartedTime = table.TableMeal.StartedTime,
-                                            EndedTime = table.TableMeal.EndedTime,
-                                            OrderSummaries = null,
-                                        },
-                                    Code = table.Code,
-                                    Seats = table.Seats,
-                                    MaxSeats = table.MaxSeats,
-                                    IsAvailable = table.IsAvailable,
-                                };
+                            select new TableSummaryDto(table);
                 response.IsSuccessful = true;
                 response.Payload = query.ToList();
                 return response;

@@ -83,7 +83,6 @@
     <Build Include="dbo\Tables\Tax.sql" />
     <Build Include="dbo\Tables\OrderType.sql" />
     <Build Include="dbo\Tables\OrderTypeTax.sql" />
-    <Build Include="dbo\Tables\TableMealOrder.sql" />
     <Build Include="dbo\Tables\Table.sql" />
     <Build Include="dbo\Tables\TableStatus.sql" />
     <Build Include="dbo\Tables\TableMeal.sql" />
@@ -93,7 +92,8 @@
     <RefactorLog Include="CG.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CG.Database.roger-home.xml" />
+    <None Include="CG.Database.roger-home.publish.xml" />
+    <None Include="CG.Database.roger-company.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Script.PostDeployment1.sql" />

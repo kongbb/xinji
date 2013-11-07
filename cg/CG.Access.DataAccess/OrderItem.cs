@@ -18,6 +18,7 @@ namespace CG.Access.DataAccess
         public long OrderId { get; set; }
         public long MenuItemId { get; set; }
         public int Count { get; set; }
+        public int ServedCount { get; set; }
     
         public virtual MenuItem MenuItem { get; set; }
         public virtual Order Order { get; set; }

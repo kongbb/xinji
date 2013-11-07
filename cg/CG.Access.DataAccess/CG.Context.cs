@@ -16,7 +16,7 @@ namespace CG.Access.DataAccess
     public partial class Entities : DbContext
     {
         public Entities()
-            : base("name=CGEntities")
+            : base("name=Entities")
         {
         }
     
@@ -41,7 +41,6 @@ namespace CG.Access.DataAccess
         public virtual DbSet<ShiftType> ShiftTypes { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<TableMeal> TableMeals { get; set; }
-        public virtual DbSet<TableMealOrder> TableMealOrders { get; set; }
         public virtual DbSet<TableMealStatu> TableMealStatus { get; set; }
         public virtual DbSet<TableStatu> TableStatus { get; set; }
         public virtual DbSet<Tax> Taxes { get; set; }

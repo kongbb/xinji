@@ -100,6 +100,7 @@
       <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\Restaurant\Table.cs" />
+    <Compile Include="Domain\Restaurant\TableMeal.cs" />
     <Compile Include="Domain\User\User.cs" />
     <Compile Include="MenuItem.cs">
       <DependentUpon>cg.tt</DependentUpon>
@@ -152,9 +153,6 @@
       <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="TableMeal.cs">
-      <DependentUpon>cg.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TableMealOrder.cs">
       <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="TableMealStatu.cs">
