@@ -12,7 +12,9 @@ using CG.Access.MessageBus.Clients;
 using CG.Access.MessageBus.Components;
 using CG.Access.MessageBus.Interfaces;
 using CG.Common.Helpers;
+using CG.Common.Interface;
 using CG.Common.Loggers;
+using CG.Common.State;
 using CG.Common.Utility;
 using CG.Logic.Domain.OrderPrinting;
 using CG.Logic.Service.Interface;
@@ -40,6 +42,8 @@ namespace CG.Presentation.WebApi
             // utility
             container.RegisterType<ILogger, NLoggerAdapter>(new ContainerControlledLifetimeManager());
             container.RegisterType<IConfig, AppConfig>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ILocalStorage, ThreadLocalStorage>(
+                new ContainerControlledLifetimeManager());
 
             // DBContext
             container.RegisterType<Entities>();

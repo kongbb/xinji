@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CG.Access.DataAccess.RepositoryInterface;
-using CG.Common.Restaurant;
 
 namespace CG.Access.DataAccess.Repositories
 {
@@ -32,6 +28,11 @@ namespace CG.Access.DataAccess.Repositories
             }
 
             return availableTables;
+        }
+
+        public TableMeal GetCurrentTableMealByTableId(long tableId)
+        {
+            return Context.Tables.Single(t => t.Id == tableId).GetCurrentTableMeal();
         }
     }
 }

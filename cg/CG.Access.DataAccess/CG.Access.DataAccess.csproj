@@ -102,6 +102,10 @@
     <Compile Include="Domain\Restaurant\Table.cs" />
     <Compile Include="Domain\Restaurant\TableMeal.cs" />
     <Compile Include="Domain\User\User.cs" />
+    <Compile Include="Entities.cs" />
+    <Compile Include="Factory\OrderFactory.cs" />
+    <Compile Include="Factory\OrderItemFactory.cs" />
+    <Compile Include="Factory\TableMealFactory.cs" />
     <Compile Include="MenuItem.cs">
       <DependentUpon>cg.tt</DependentUpon>
     </Compile>

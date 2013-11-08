@@ -285,10 +285,6 @@
       <Project>{F5FF810F-7CCB-4EDD-B406-9CBFD8468C74}</Project>
       <Name>CG.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CG.Logic.Domain\CG.Logic.Domain.csproj">
-      <Project>{a2f7a307-8bc0-49f5-9754-4212d870cd24}</Project>
-      <Name>CG.Logic.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CG.Logic.Dto\CG.Logic.Dto.csproj">
       <Project>{EF361CFC-AE7E-4A08-A6E1-75707CB2C626}</Project>
       <Name>CG.Logic.Dto</Name>

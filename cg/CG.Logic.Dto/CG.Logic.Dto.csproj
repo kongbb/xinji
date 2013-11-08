@@ -77,6 +77,7 @@
     <Compile Include="BaseResponseDto.cs" />
     <Compile Include="ListResponseDto.cs" />
     <Compile Include="MessageDto.cs" />
+    <Compile Include="RequestDto\OrderRequestDto.cs" />
     <Compile Include="ResponseDto.cs" />
     <Compile Include="Restaurant\OrderItemDto.cs" />
     <Compile Include="Restaurant\TableMealSummaryDto.cs" />

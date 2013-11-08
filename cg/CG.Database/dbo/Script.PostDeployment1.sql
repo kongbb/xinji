@@ -129,8 +129,10 @@ INSERT INTO [dbo].[Table] values (15, 't15',1,3,8,1,1)
 INSERT INTO [dbo].[Table] values (16, 't16',1,3,12,1,1)
 
 -- Table Meal Status
-INSERT INTO [dbo].[TableMealStatus] values (1,'Ordered')
-INSERT INTO [dbo].[TableMealStatus] values (2,'Finished')
+INSERT INTO [dbo].[TableMealStatus] values (1,'Opening')
+INSERT INTO [dbo].[TableMealStatus] values (2,'Ordering')
+INSERT INTO [dbo].[TableMealStatus] values (3,'Dining')
+INSERT INTO [dbo].[TableMealStatus] values (4,'Billing')
 
 insert into TableMeal values(3,1, getdate(), null, 3, 2, getdate())
 insert into TableMeal values(4,1, getdate(), null, 3, 2, getdate())

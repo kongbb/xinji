@@ -83,11 +83,14 @@
     <Compile Include="Constants\MessageBusPurposeNames.cs" />
     <Compile Include="Constants\MessageBusQueueNames.cs" />
     <Compile Include="Constants\MessageBusRoutingKeys.cs" />
+    <Compile Include="Constants\TableMealStatuses.cs" />
+    <Compile Include="Helpers\CurrentUserHelper.cs" />
     <Compile Include="Helpers\ParameterHelper.cs" />
     <Compile Include="Helpers\UnityHelper.cs" />
+    <Compile Include="Interface\ILocalStorage.cs" />
     <Compile Include="Loggers\ILogger.cs" />
     <Compile Include="Loggers\NLoggerAdapter.cs" />
-    <Compile Include="Restaurant\TableStatuses.cs" />
+    <Compile Include="State\ThreadLocalStorage.cs" />
     <Compile Include="Utility\AppConfig.cs" />
     <Compile Include="Enums\MessageBusExchangeType.cs" />
     <Compile Include="Utility\HttpRequestManager.cs" />
@@ -95,7 +98,9 @@
     <Compile Include="Utility\LoggerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Restaurant\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

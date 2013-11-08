@@ -94,10 +94,6 @@
       <Project>{9bfe42cc-c6d9-44cb-8d98-f1155cee7dce}</Project>
       <Name>CG.Access.MessageBus</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CG.Logic.Domain\CG.Logic.Domain.csproj">
-      <Project>{a2f7a307-8bc0-49f5-9754-4212d870cd24}</Project>
-      <Name>CG.Logic.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

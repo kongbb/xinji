@@ -7,7 +7,7 @@ using CG.Access.DataAccess.RepositoryInterface;
 
 namespace CG.Access.DataAccess.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository, IUserRepository
     {
         public User Authenticate(string userName, string password)
         {
@@ -16,6 +16,11 @@ namespace CG.Access.DataAccess.Repositories
                 //Name = userName,
                 //Roles = new List<string>()
             };
+        }
+
+        public User GetUserById(long id)
+        {
+            return Context.Users.Single(u => u.Id == id);
         }
     }
 }

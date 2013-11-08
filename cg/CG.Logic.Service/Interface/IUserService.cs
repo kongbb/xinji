@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CG.Access.DataAccess;
 
-namespace CG.Access.DataAccess.RepositoryInterface
+namespace CG.Logic.Service.Interface
 {
-    public interface IUserRepository
+    public interface IUserService
     {
-        User Authenticate(string userName, string password);
-
         User GetUserById(long id);
     }
 }

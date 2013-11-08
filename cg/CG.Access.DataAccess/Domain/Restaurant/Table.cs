@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CG.Common.Restaurant;
 
 namespace CG.Access.DataAccess
 {
@@ -17,12 +13,8 @@ namespace CG.Access.DataAccess
 
         public TableMeal GetCurrentTableMeal()
         {
-            if (TableStatusId == TableStatuses.Spare || TableStatusId == TableStatuses.NeedClean)
-            {
-                return null;
-            }
-            
-            return TableMeals.OrderByDescending(tm => tm.UpdatedDateTime).First();
+            return TableMeals.SingleOrDefault(
+                tm => tm.StartedTime < DateTime.Now && tm.EndedTime > DateTime.Now);
         }
 
         #endregion

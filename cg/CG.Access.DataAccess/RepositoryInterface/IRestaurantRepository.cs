@@ -9,5 +9,7 @@ namespace CG.Access.DataAccess.RepositoryInterface
     public interface IRestaurantRepository
     {
         List<Table> GetTablesByRestaurantId(long restaurantId);
+
+        TableMeal GetCurrentTableMealByTableId(long tableId);
     }
 }
