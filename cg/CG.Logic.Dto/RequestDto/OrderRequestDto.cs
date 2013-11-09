@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CG.Logic.DomainObject;
 using CG.Logic.Dto.Restaurant;
 
 namespace CG.Logic.Dto.RequestDto
 {
-    public class OrderRequestDto
+    public class OrderRequestDto : BaseDto
     {
         public long TableId { get; set; }
 

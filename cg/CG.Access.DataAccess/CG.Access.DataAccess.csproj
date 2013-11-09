@@ -141,6 +141,7 @@
     <Compile Include="Repositories\RestaurantRepository.cs" />
     <Compile Include="Repositories\TestRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="RepositoryInterface\IRepository.cs" />
     <Compile Include="RepositoryInterface\IRestaurantRepository.cs" />
     <Compile Include="RepositoryInterface\ITestRepository.cs" />
     <Compile Include="RepositoryInterface\IUserRepository.cs" />
@@ -160,9 +161,6 @@
       <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="TableMealStatu.cs">
-      <DependentUpon>cg.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TableStatu.cs">
       <DependentUpon>cg.tt</DependentUpon>
     </Compile>
     <Compile Include="Tax.cs">

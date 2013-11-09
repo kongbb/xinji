@@ -41,14 +41,21 @@ namespace CG.Logic.Service.Service
             if (tableMeal == null)
             {
                 tableMeal = TableMealFactory.CreateNewTableMeal(order.TableId, order.GuestNumber);
+                RestaurantRepository.Add(tableMeal);
             }
 
             var newOrder = OrderFactory.CreateOrder(tableMeal, order.OrderTypeId);
             tableMeal.Orders.Add(newOrder);
+            RestaurantRepository.Add(newOrder);
             foreach (var orderItem in order.Order)
             {
-                newOrder.OrderItems.Add(OrderItemFactory.CreateOrderItem(orderItem.MenuItemId, orderItem.Count));
+                var temp = OrderItemFactory.CreateOrderItem(orderItem.MenuItemId, orderItem.Count);
+                newOrder.OrderItems.Add(temp);
             }
+
+            RestaurantRepository.Commit();
+
+            return new VoidResponseDto{IsSuccessful = true,};
         }
     }
 }

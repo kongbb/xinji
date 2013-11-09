@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CG.Access.DataAccess.RepositoryInterface
 {
-    public interface IRestaurantRepository
+    public interface IRestaurantRepository : IRepository
     {
         List<Table> GetTablesByRestaurantId(long restaurantId);
 

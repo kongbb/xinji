@@ -83,6 +83,7 @@
     <Compile Include="Constants\MessageBusPurposeNames.cs" />
     <Compile Include="Constants\MessageBusQueueNames.cs" />
     <Compile Include="Constants\MessageBusRoutingKeys.cs" />
+    <Compile Include="Constants\OrderStatuses.cs" />
     <Compile Include="Constants\TableMealStatuses.cs" />
     <Compile Include="Helpers\CurrentUserHelper.cs" />
     <Compile Include="Helpers\ParameterHelper.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Utility\IConfig.cs" />
     <Compile Include="Utility\LoggerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\TimeManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Restaurant\" />

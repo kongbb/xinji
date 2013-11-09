@@ -15,9 +15,9 @@ namespace CG.Logic.Dto.Restaurant
         public TableSummaryDto(Table table)
         {
             TableId = table.Id;
-            TableMeal = table.TableMeal == null
+            TableMeal = table.CurrentTableMeal == null
                 ? null
-                : new TableMealSummaryDto(table.TableMeal);
+                : new TableMealSummaryDto(table.CurrentTableMeal);
             Code = table.Code;
             Seats = table.Seats;
             MaxSeats = table.MaxSeats;

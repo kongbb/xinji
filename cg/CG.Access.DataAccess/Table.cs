@@ -21,13 +21,11 @@ namespace CG.Access.DataAccess
     
         public long Id { get; set; }
         public string Code { get; set; }
-        public long TableStatusId { get; set; }
         public int Seats { get; set; }
         public int MaxSeats { get; set; }
         public bool IsAvailable { get; set; }
         public long RestaurantId { get; set; }
     
-        public virtual TableStatu TableStatu { get; set; }
         public virtual ICollection<TableMeal> TableMeals { get; set; }
         public virtual Restaurant Restaurant { get; set; }
     }

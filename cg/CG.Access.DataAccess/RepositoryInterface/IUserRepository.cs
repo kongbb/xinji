@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CG.Access.DataAccess.RepositoryInterface
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository
     {
         User Authenticate(string userName, string password);
 

@@ -22,11 +22,20 @@ using CG.Logic.Service.Service;
 using CG.Presentation.WebApi.Controllers;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.WebApi;
+using NLog;
 
 namespace CG.Presentation.WebApi
 {
     public static class Bootstrapper
     {
+        private static Logger Logger
+        {
+            get
+            {
+                return LogManager.GetLogger("Global");
+            }
+        }
+
         public static void Initialise()
         {
             var container = BuildUnityContainer();
@@ -36,43 +45,54 @@ namespace CG.Presentation.WebApi
 
         private static IUnityContainer BuildUnityContainer()
         {
-            var container = new UnityContainer();
-            UnityHelper.Current = container;
+            try
+            {
+                var container = new UnityContainer();
+                UnityHelper.Current = container;
 
-            // utility
-            container.RegisterType<ILogger, NLoggerAdapter>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IConfig, AppConfig>(new ContainerControlledLifetimeManager());
-            container.RegisterType<ILocalStorage, ThreadLocalStorage>(
-                new ContainerControlledLifetimeManager());
+                // utility
+                container.RegisterType<ILogger, NLoggerAdapter>(new ContainerControlledLifetimeManager());
+                container.RegisterType<IConfig, AppConfig>(new ContainerControlledLifetimeManager());
+                container.RegisterType<ILocalStorage, ThreadLocalStorage>(
+                    new ContainerControlledLifetimeManager());
 
-            // DBContext
-            container.RegisterType<Entities>();
+                // DBContext
+                container.RegisterType<Entities>();
 
-            // UserRepository
-            container.RegisterType<IUserRepository, UserRepository>();
-            container.RegisterType<IRestaurantRepository, RestaurantRepository>();
+                // UserRepository
+                container.RegisterType<IUserService, UserService>(new ContainerControlledLifetimeManager());
+                container.RegisterType<IUserRepository, UserRepository>(new ContainerControlledLifetimeManager());
+                container.RegisterType<IRestaurantRepository, RestaurantRepository>(new ContainerControlledLifetimeManager());
 
-            // controller, service, repository
-            container
-                .RegisterType<TestApiController>()
-                .RegisterType<ITestService, TestService>()
-                .RegisterType<ITestRepository, TestRepository>(new ContainerControlledLifetimeManager());
+                // controller, service, repository
+                container
+                    .RegisterType<TestApiController>()
+                    .RegisterType<ITestService, TestService>()
+                    .RegisterType<ITestRepository, TestRepository>(new ContainerControlledLifetimeManager());
 
-            container
-                .RegisterType<RestaurantApiController>()
-                .RegisterType<IRestaurantService, RestaurantService>()
-                .RegisterType<IRestaurantRepository, RestaurantRepository>(new ContainerControlledLifetimeManager());
+                container
+                    .RegisterType<RestaurantApiController>()
+                    .RegisterType<IRestaurantService, RestaurantService>()
+                    .RegisterType<IRestaurantRepository, RestaurantRepository>(new ContainerControlledLifetimeManager());
+
+                // message bus
+                container
+                    .RegisterType<MessageBusLogger>(new ContainerControlledLifetimeManager())
+                    // order printing
+                    .RegisterType<IOrderPrintingMessageBusClient, OrderPrintingMessageBusClient>(new ContainerControlledLifetimeManager())
+                    .RegisterType<IMessageBusFactory<OrderPrintingMessage>, MessageBusFactory<OrderPrintingMessage>>(new ContainerControlledLifetimeManager())
+                    // bill printing
+                    .RegisterType<IBillPrintingMessageBusClient, BillPrintingMessageBusClient>(new ContainerControlledLifetimeManager());
+
+                return container;
+            }
+            catch (Exception ex)
+            {
+                Logger.ErrorException("Error occurred in global initialization", ex);
+                Logger.Error(ex.StackTrace);
+                throw;
+            }
             
-            // message bus
-            container
-                .RegisterType<MessageBusLogger>(new ContainerControlledLifetimeManager())
-                // order printing
-                .RegisterType<IOrderPrintingMessageBusClient, OrderPrintingMessageBusClient>(new ContainerControlledLifetimeManager())
-                .RegisterType<IMessageBusFactory<OrderPrintingMessage>,MessageBusFactory<OrderPrintingMessage>>(new ContainerControlledLifetimeManager())
-                // bill printing
-                .RegisterType<IBillPrintingMessageBusClient, BillPrintingMessageBusClient>(new ContainerControlledLifetimeManager());
-
-            return container;
         }
     }
 }

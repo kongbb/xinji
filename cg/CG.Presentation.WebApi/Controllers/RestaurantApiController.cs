@@ -35,7 +35,9 @@ namespace CG.Presentation.WebApi.Controllers
         [HttpPost]
         public VoidResponseDto MakeOrder(OrderRequestDto order)
         {
-            var response = RestaurantService.MakeOrder(order);
+            // hardcode
+            CurrentUserHelper.SetCurrentUserId(1);
+            return RestaurantService.MakeOrder(order);
         }
         //[HttpPost]
         //public VoidResponseDto AddRestaurant(RestaurantDto restaurantDto)

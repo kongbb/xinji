@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[OrderItem]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY, 
+	[Id] BIGINT IDENTITY(1,1) NOT NULL PRIMARY KEY, 
     [OrderId] BIGINT NOT NULL, 
     [MenuItemId] BIGINT NOT NULL, 
     [Count] INT NOT NULL, 

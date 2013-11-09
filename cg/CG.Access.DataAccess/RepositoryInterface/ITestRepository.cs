@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CG.Access.DataAccess.RepositoryInterface
 {
-    public interface ITestRepository
+    public interface ITestRepository : IRepository
     {
         TestTable GetTestMessageById(long messageId);
     }

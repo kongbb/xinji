@@ -42,7 +42,6 @@ namespace CG.Access.DataAccess
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<TableMeal> TableMeals { get; set; }
         public virtual DbSet<TableMealStatu> TableMealStatus { get; set; }
-        public virtual DbSet<TableStatu> TableStatus { get; set; }
         public virtual DbSet<Tax> Taxes { get; set; }
         public virtual DbSet<Terminal> Terminals { get; set; }
         public virtual DbSet<TestTable> TestTables { get; set; }
